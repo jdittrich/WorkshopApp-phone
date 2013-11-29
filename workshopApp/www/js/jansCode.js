@@ -1,4 +1,10 @@
+
 var thingy; 
+$(document).bind("mobileinit", function(){
+    //apply jQMobile overrides here
+    $.mobile.defaultPageTransition = "none";
+});
+
 $(document).on("pagecreate",function(){}); //equivalten to jQuery's ready
 $(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again. 
 
@@ -48,9 +54,13 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
         //TODO: needs some check that the timer is finished and not just reset. 
         console.log("callback?!");
         //this function will be called when the timer reached 00:00 
-        var soundFile= new Audio();
-        soundFile.src="beep.ogg";
-        soundFile.play();
+        
+        if(navigator && navigator.notification && navigator.notification.beep){//if on phonegap
+            navigator.notification.beep(1);        
+        }else{ //else use the normal browser sound
+            var soundFile= new Audio();
+            soundFile.src="img/beep.ogg";
+            soundFile.play();}
     });
     
     
