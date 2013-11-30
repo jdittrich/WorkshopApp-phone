@@ -1,15 +1,4 @@
-
-var thingy; 
-$(document).bind("mobileinit", function(){
-    //apply jQMobile overrides here
-    $.mobile.defaultPageTransition = "none";
-});
-
-$(document).on("pagecreate",function(){}); //equivalten to jQuery's ready
-$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again. 
-
-    //We create the timer reacting on jquery mobile's "pagebeforecreate" event, so that the markup we insert here is enhanced by jquery mobile
-    var createTimer = function(selector,time,stopCallback){
+var createTimer = function(selector,time,stopCallback){
         var timerContainer, timer,startButton, resetButton;
 
         
@@ -41,28 +30,55 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
         }).click(function(){
             timer.stop();//otherwise it will just continue after reset
             timer.setTime(time); //sets the time to the time value passed for initialization. Closures FTW. 
-            
         });
         
         $(selector).append([timerContainer,startButton, resetButton]); //lesser known: pass $.append an array of objects to insert them at once. 
         
         return timer;
-    };
-    
-    thingy =  createTimer('.flipclock',7,function(){
-        if(this.factory.time.time!==0){return}// since the function will be called everytime the timer is stopped, not only when the time is up (on 0). So every stop done while there is still time left, leads to an return. 
-        //TODO: needs some check that the timer is finished and not just reset. 
-        console.log("callback?!");
-        //this function will be called when the timer reached 00:00 
+};//createTimer End
+
+
+
+$(document).bind("mobileinit", function(){
+    //apply jQMobile overrides here
+    $.mobile.defaultPageTransition = "none";
+});
+
+$(document).on("pagecreate",function(){}); //equivalten to jQuery's ready
+
+$(document).on("pagebeforecreate",function(event){
+    $(event.target).find(".flipclock").each(function(index, element){
+        if(!createTimer){
+            throw "no createTimer function present, can't create timer!";
+        }
         
-        if(navigator && navigator.notification && navigator.notification.beep){//if on phonegap
-            navigator.notification.beep(1);        
-        }else{ //else use the normal browser sound
-            var soundFile= new Audio();
-            soundFile.src="img/beep.ogg";
-            soundFile.play();}
-    });
-    
+        var duration = parseFloat($(element).attr("data-clock-duration"));
+        if(typeof duration !== "number"){
+            throw "data-clock-duration attribute is not a number (NaN): "+typeof duration;
+        }else{
+            createTimer(element,duration, function(){
+                if(this.factory.time.time!==0){return}// since the function will be called everytime the timer is stopped, not only when the time is up (on 0). So every stop done while there is still time left, leads to an return. 
+                //TODO: needs some check that the timer is finished and not just reset. 
+                console.log("callback?!");
+                //this function will be called when the timer reached 00:00 
+                
+                if(navigator && navigator.notification && navigator.notification.beep){//if on phonegap
+                    navigator.notification.beep(1);        
+                }else{ //else use the normal browser sound
+                    var soundFile= new Audio();
+                    soundFile.src="img/beep.ogg";
+                    soundFile.play();
+                }//END else 
+            }//END function
+        );//end createTimer call
+        
+        }//end else
+    });//end each callback function and each function call   
+}); //end pagebeforecreate
+
+$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again. 
+
+    //We create the timer reacting on jquery mobile's "pagebeforecreate" event, so that the markup we insert here is enhanced by jquery mobile
     
     /*
     clock = $('.flipclock').FlipClock({
