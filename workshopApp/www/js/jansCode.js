@@ -3,7 +3,9 @@ var createTimer = function(selector,time,stopCallback){
 
         
 
-        timerContainer=$('<div>'); //this will contain only the flipclock object;
+        timerContainer=$('<div>',{"class":"flipclock-custom-container"}); //this will contain only the flipclock object;
+        buttonContainer=$('<div/>',{"class":"flipclock-custom-button-container"});
+    
         timer = timerContainer.FlipClock({
             callbacks:{
                 stop:stopCallback
@@ -31,8 +33,9 @@ var createTimer = function(selector,time,stopCallback){
             timer.stop();//otherwise it will just continue after reset
             timer.setTime(time); //sets the time to the time value passed for initialization. Closures FTW. 
         });
-        
-        $(selector).append([timerContainer,startButton, resetButton]); //lesser known: pass $.append an array of objects to insert them at once. 
+    
+        $(buttonContainer).append(startButton, resetButton);
+        $(selector).append([timerContainer,buttonContainer]); //lesser known: pass $.append an array of objects to insert them at once. 
         
         return timer;
 };//createTimer End

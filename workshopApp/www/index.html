@@ -14,6 +14,7 @@
     <!--    <link rel="stylesheet"  href="jquery.mobile-1.4.0-rc.1.min.css">-->
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
     <link rel="stylesheet" href="css/flipclock.css">
+    <link rel="stylesheet" href="css/workshopapp.css">
     <script src="js/libs/jquery2.min.js"></script>
     <!--  <script src="jquery.mobile-1.4.0-rc1.js"></script>-->
     <script src="js/libs/jquery.mobile-1.3.2.js"></script>
@@ -29,7 +30,7 @@ alert("hi");
     <div id="container">
     <div data-role="page" id="overview">
         <div data-role="header">
-            <h1>My Title</h1>
+            <h1>DesignStudio Workshop</h1>
         </div>
         <!-- /header -->
         <div data-role="content">
@@ -52,36 +53,37 @@ alert("hi");
 
     <div data-role="page" id="design">
         <div data-role="header" data-id="dr" data-position="fixed">
-            <h1>Design</h1>
             <div data-role="navbar">
                 <ul>
                     <li>
                         <a href="#design" class="ui-btn-active ui-state-persist">Design</a>
                     </li>
                     <li>
-                        <a href="#presentReview">Review</a>
+                        <a href="#presentReview">Present & Review</a>
                     </li>
                 </ul>
             </div>        <!-- /navbar -->
         </div>    <!-- /header -->
         <div data-role="content">
-            <p>In the design phase</p>
-            <div class="flipclock" data-clock-duration="2"></div>
+            <p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
+            <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
+            <div class="flipclock" data-clock-duration="300"></div>
+        </div>    <!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <a href="#presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right">proceed to presentation</a>
         </div>
-        <!-- /content -->
     </div>
     <!--End page -->
 
     <div data-role="page" id="presentReview">
         <div data-role="header" data-id="dr" data-position="fixed">
-            <h1>Present and Review</h1>
             <div data-role="navbar">
                 <ul>
                     <li>
                         <a href="#design">Design</a>
                     </li>
                     <li>
-                        <a href="#presentReview" class="ui-btn-active ui-state-persist">Review</a>
+                        <a href="#presentReview" class="ui-btn-active ui-state-persist">Present & Review</a>
                     </li>
                 </ul>                
             </div>
