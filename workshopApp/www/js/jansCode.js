@@ -1,15 +1,4 @@
-
-var thingy; 
-$(document).bind("mobileinit", function(){
-    //apply jQMobile overrides here
-    $.mobile.defaultPageTransition = "none";
-});
-
-$(document).on("pagecreate",function(){}); //equivalten to jQuery's ready
-$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again. 
-
-    //We create the timer reacting on jquery mobile's "pagebeforecreate" event, so that the markup we insert here is enhanced by jquery mobile
-    var createTimer = function(selector,time,stopCallback){
+var createTimer = function(selector,time,stopCallback){
         var timerContainer, timer,startButton, resetButton;
 
         
@@ -48,7 +37,15 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
         
         return timer;
     };
-    
+
+
+$(document).bind("mobileinit", function(){
+    //apply jQMobile overrides here
+    $.mobile.defaultPageTransition = "none";
+});
+
+$(document).on("pagebeforecreate",function(){ //fires when a page is the first time displayed by jquery.
+    console.log("before create");
     thingy =  createTimer('.flipclock',7,function(){
         if(this.factory.time.time!==0){return}// since the function will be called everytime the timer is stopped, not only when the time is up (on 0). So every stop done while there is still time left, leads to an return. 
         //TODO: needs some check that the timer is finished and not just reset. 
@@ -56,24 +53,23 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
         //this function will be called when the timer reached 00:00 
         
         if(navigator && navigator.notification && navigator.notification.beep){//if on phonegap
-            navigator.notification.beep(1);        
+            navigator.notification.beep(1);         
         }else{ //else use the normal browser sound
             var soundFile= new Audio();
             soundFile.src="img/beep.ogg";
             soundFile.play();}
-    });
+    });//create Timer
+}); //equivalten to jQuery's ready
+
+$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again. 
+
+
     
     
-    /*
-    clock = $('.flipclock').FlipClock({
-            callbacks{
-                stop:function(){console.log("heho")}
-            },
-            countdown: true,
-            autoStart: false
-        });
-    clock.setTime(3);
-    clock.start();*/
-});
+//We create the timer reacting on page ready event, so that the markup we insert here is enhanced by jquery mobile
+    
+    
+    
+});//Document ready
     
     
