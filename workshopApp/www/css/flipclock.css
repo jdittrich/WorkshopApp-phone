@@ -213,7 +213,7 @@
 
 .flip-clock-dot.bottom {
   bottom: 30px; }
-/*
+
 @-webkit-keyframes asd {
   0% {
     z-index: 2; }
@@ -253,7 +253,7 @@
 
   100% {
     z-index: 4; } }
-*/
+    
 .flip-clock-wrapper ul.play li.flip-clock-active .down {
   z-index: 2;
   /*-webkit-animation: turn 0.5s 0.5s linear both;
@@ -321,10 +321,10 @@
 
   100% {
     transform: rotateX(-90deg); } }
-
+*/
 .flip-clock-wrapper ul li.flip-clock-active {
   z-index: 3; }
-*/
+
 /* SHADOW */
 .flip-clock-wrapper ul.play li.flip-clock-before .up .shadow {
   /*background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
