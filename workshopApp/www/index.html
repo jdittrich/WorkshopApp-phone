@@ -13,7 +13,6 @@
     
     <!--    <link rel="stylesheet"  href="jquery.mobile-1.4.0-rc.1.min.css">-->
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
-    <link rel="stylesheet" href="css/flipclock.css">
     <link rel="stylesheet" href="css/workshopapp.css">
     <script src="js/libs/jquery2.min.js"></script>
     <!--  <script src="jquery.mobile-1.4.0-rc1.js"></script>-->
@@ -22,9 +21,7 @@
     <script src="js/libs/flipclock.min.js"></script>-->
     <script src="js/libs/jquery.countdown.js"></script>
     <script src="js/jansCode.js"></script>
-    <script>$(function(){
-alert("hi");
-})</script>
+
 </head>
 
 <body>
@@ -68,7 +65,8 @@ alert("hi");
         <div data-role="content">
             <p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
             <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
-            <div class="flipclock" data-clock-duration="300"></div>
+            <div class="countdownTimer" data-clock-duration="300"></div>
+            <div class="countdownTimer" data-clock-duration="20"></div>
         </div>    <!-- /content -->
         <div data-role="footer" data-position="fixed">
             <a href="#presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right">proceed to presentation</a>
@@ -103,7 +101,8 @@ alert("hi");
                     <a href="index.html" data-role="button" data-inline="true">Cancel</a>
                 </h3>
                 <p>blabla</p>
-                <div class="flipclock" data-clock-duration="5"></div>
+                <div class="countdownTimer" data-clock-duration="5"></div>
+                 <div class="countdownTimer" data-clock-duration="5"></div>
             </div>
         </div>
         <!-- /content -->

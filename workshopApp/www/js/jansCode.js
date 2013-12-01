@@ -1,24 +1,35 @@
 var createTimer = function(selector,time,stopCallback){
         var timerContainer, timer,startButton, resetButton;
-
+        var config={
+            timerContainerClass: "clock-custom-container",
+            timerButtonsContainerClass:"clock-custom-button-container",
+        };
         
 
-        timerContainer=$('<div>',{"class":"clock-custom-container"}); //this will contain only the flipclock object;
-        buttonContainer=$('<div/>',{"class":"clock-custom-button-container"});
+        timerContainer=$('<div>',{"class":config.timerContainerClass}); //this will contain only the flipclock object;
+        buttonContainer=$('<div/>',{"class":config.timerButtonsContainerClass});
         
         timer = $(timerContainer)
-        .countdown({until:time,
-                    onExpiry:stopCallback,
-                    compact:true,
+        .countdown({until:time, //time in seconds
+                    onExpiry:stopCallback, //the "alarm" when the time is off
+                    compact:true, //no Minutes:xx Seconds:xx
                     format:"MS"})
-        .countdown('pause'); //it autostart otherwise
+        .countdown('pause'); //it autostarts. And this stops it. 
                     
         timerContainer.appendTo(selector);
         
+        //react on timerstart event in order to stop if another timer is started
+        timerContainer.on("timerstart", function(e){
+            if(e.target != timerContainer){
+                $(timerContainer).countdown("pause");
+            }
+        });
+    
         startButton = $("<button/>",{
             text:"start", 
             "class":"clock-custombutton clock-custombutton-start"
         }).click(function(){
+            $("."+config.timerContainerClass).trigger("timerstart",{"target":timerContainer});
             $(timer).countdown("resume");
         });
         resetButton = $("<button/>",{
@@ -46,7 +57,7 @@ $(document).bind("mobileinit", function(){
 $(document).on("pagecreate",function(){}); //equivalten to jQuery's ready
 
 $(document).on("pagebeforecreate",function(event){
-    $(event.target).find(".flipclock").each(function(index, element){
+    $(event.target).find(".countdownTimer").each(function(index, element){
         if(!createTimer){
             throw "no createTimer function present, can't create timer!";
         }

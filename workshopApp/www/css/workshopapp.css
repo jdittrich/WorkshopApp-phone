@@ -1,11 +1,12 @@
-.flipclock-custom-container{
-    display:inline-block;
-    width:59%;
+.clock-custom-container{
+    display: inline-block;
+    font-size: 6em;
+    vertical-align: top;
+    width: 3em;
 }
 
-.flipclock-custom-button-container{
+.clock-custom-button-container{
     display:inline-block;
-    width:30%;
-    position:relative;
-    top:-0.8em;
+    width:20em;
+    
 }
