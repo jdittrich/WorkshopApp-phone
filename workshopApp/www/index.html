@@ -66,7 +66,6 @@
             <p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
             <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
             <div class="countdownTimer" data-clock-duration="300"></div>
-            <div class="countdownTimer" data-clock-duration="20"></div>
         </div>    <!-- /content -->
         <div data-role="footer" data-position="fixed">
             <a href="#presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right">proceed to presentation</a>
@@ -90,23 +89,37 @@
         </div>
         <!-- /header -->
         <div data-role="content">
-            <div data-role="collapsible">
-                <a href="index.html" data-role="button" data-inline="true">Cancel</a>
-                <h3>Present</h3>
-                <p>blabla</p>
-            </div>
-
-            <div data-role="collapsible">
-                <h3>Review
-                    <a href="index.html" data-role="button" data-inline="true">Cancel</a>
-                </h3>
-                <p>blabla</p>
-                <div class="countdownTimer" data-clock-duration="5"></div>
-                 <div class="countdownTimer" data-clock-duration="5"></div>
+            <p>Each person presents and gets Feedback</p>
+            <div data-role="collapsible-set">
+                <div data-role="collapsible">
+                    <h3>Present</h3>
+                    <p><em>active:</em> One person, presenting</p>
+                    <div class="countdownTimer" data-clock-duration="5"></div>
+                    <ul>
+                        <li>one person presents his/her work</li>
+                        <li>the others listen and take notes</li>
+                    </ul>  
+                </div>
+                <div data-role="collapsible">
+                    <h3>Feedback</h3>
+                    <p><em>active:</em> Everybody, except the one who's concepts are discussed</p>
+                    <div class="countdownTimer" data-clock-duration="5"></div>
+                    
+                    <ul>
+                        <li>The pros and cons are discussed by the group and noted in the sketches. </li>
+                        <li>The one who designed listens and takes notes</li>
+                    </ul>
+                    <p>Circle parts you have a remark on with a green (positive) oder red (problem) pen. Write why you think this is good or probelatic.</p>
+                    <p>This is not a design phase. Discuss what is good or bad about ideas and why, but leave the design up to the creator of the sketches.</p>
+                    
+                </div>
+                <p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
+            <a href="#design" data-role="button">another design round!</a>
             </div>
         </div>
         <!-- /content -->
     </div>
+        
     <!--End page -->
 </div><!-- end container-->
 <script type="text/javascript">

@@ -86,16 +86,7 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
 
     //We create the timer reacting on jquery mobile's "pagebeforecreate" event, so that the markup we insert here is enhanced by jquery mobile
     
-    /*
-    clock = $('.flipclock').FlipClock({
-            callbacks{
-                stop:function(){console.log("heho")}
-            },
-            countdown: true,
-            autoStart: false
-        });
-    clock.setTime(3);
-    clock.start();*/
+   
 });
     
     
