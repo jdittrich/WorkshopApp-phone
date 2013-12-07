@@ -7,6 +7,10 @@
 
 .clock-custom-button-container{
     display:inline-block;
-    width: 30%;
-    
+    width: 30%;   
+}
+
+.shadow {
+	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+	border-radius:5px;
 }
