@@ -14,3 +14,16 @@
 	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
 	border-radius:5px;
 }
+
+div[data-role="popup"] div {
+    width:20em; 
+}
+
+div[data-role="popup"] div p{
+    padding:0.5em;
+}
+
+div[data-role="popup"] div img{
+    width:19em;
+    margin-left:0.5em;
+}

@@ -66,17 +66,22 @@
             <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
             <p>You got 5 min. in which you all work in paralell on your own ideas.</p>
             <div class="countdownTimer" data-clock-duration="300"></div>
-            <div style="width:70%;">
-                <img src="img/DesignStudio1.png" class="shadow" style="width:100%; margin-top:1em;">
-                <p>Sketch your ideas!</p>
+            <a href="#dialogExampleSheet" data-rel="popup">Show Example</a>
+            <div data-role="popup" id="dialogExampleSheet">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                <div>    
+                    <img src="img/DesignStudio1.png" class="shadow">
+                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
+                </div>
             </div>
-
-            <a href="#presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
-        </div>    <!-- /content -->
+            
+            
+            <a href="#dialogExampleSheet" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+        </div><!-- /content -->
             
     </div>
+        
     <!--End page -->
-
     <div data-role="page" id="presentReview">
         <div data-role="header" data-id="dr" data-position="fixed">
             <div data-role="navbar">
@@ -103,28 +108,28 @@
             <div class="countdownTimer" data-clock-duration="5"></div>
             
             
-            <div style="width:50%; display:inline-block">
-                <img src="img/DesignStudio4.png" class="shadow" style="width:95%; margin-right:1em; margin-top:1em;">
-            </div>
-            <div style="width:40%; display:inline-block; vertical-align:top;">
-                <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
-            </div>
-            
-            
                     <p>This is not a design phase! Discuss what is good or bad about ideas and why, but leave the design up to the creator of the sketches.</p>        
              
             <h4>Everybody presented and got feedback?</h4>
             <p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
+            <a href="#dialogExampleAnnotations" data-rel="popup">Show Example</a>
+            <div data-role="popup" id="dialogExampleAnnotations">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                <div>
+                    <img src="img/DesignStudio4.png" class="shadow" >
+                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
+                </div>
+            </div>
+            
             <a href="#design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse" >another round!</a>
-        </div>
-        <!-- /content -->
-    </div>
-        
-    <!--End page -->
-</div><!-- end container-->
-<script type="text/javascript">
-            app.initialize();
-</script>
+        </div><!-- /content -->
+    </div>    <!--End page -->
+    
+    </div><!-- end container-->
+
+    <script type="text/javascript">
+                app.initialize();
+    </script>
 
 </body>
 
