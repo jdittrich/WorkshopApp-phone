@@ -110,8 +110,18 @@ $(document).on("pagebeforecreate",function(event){
 }); //end pagebeforecreate
 
 $(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.
+    
+    //init external toolbars. Documentation a bit scattered, but start at http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/toolbar-fixed-external/ 
 	$( "[data-role='header'], [data-role='footer']" ).toolbar();
     $( "[data-role='navbar']" ).navbar();  
+    
+    //update external toolbar to show the currently active session
+    $(this).attr("id");
+    //TODO1
+    //split id-string at "-"
+    //assign first part to section, 2nd to step
+    //go through the section navbar, look for data-section… attrib match
+    ////go through the step navbar, look for data-section… attrib match
 });
     
     
