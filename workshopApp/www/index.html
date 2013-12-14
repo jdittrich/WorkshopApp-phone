@@ -24,65 +24,8 @@
 
 <body>
     <div id="container">
-    <div data-role="page" id="overview">
-        <div data-role="header">
-            <h1>DesignStudio Workshop</h1>
-        </div>
-        <!-- /header -->
-        <div data-role="content">
-            <p>This app guides you through a Design studio Workshop, an idea-generation method</p>
-            <p>Gather 2-5 People to do the workshop.</p>
-            <p>It needs to be clear what should archived,so you need a problem to solve or a challange</p>
-            <p>Please take care that you have the following items:</p>
-            <ul>
-                <li>A bunch of paper sheets (DINA4 DINA3) for each person</li>
-                <li>Something to draw for everybody (felt pens are great)</li>
-                <li>several green and red crayons or felt pens</li>            
-            </ul>
-            <a href="#design" data-role="button" data-icon="arrow-r" data-iconpos="right">begin workshop!</a>
-        </div>
-        <!-- /content -->
-            
-    </div>
-    <!--End page -->
-
-    <div data-role="page" id="design">
-        <div data-role="header" data-id="dr" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li>
-                        <a href="#design" class="ui-btn-active ui-state-persist">Design</a>
-                    </li>
-                    <li>
-                        <a href="#presentReview" data-transition="slide">Present & Review</a>
-                    </li>
-                </ul>
-            </div>        <!-- /navbar -->
-        </div>    <!-- /header -->
-        <div data-role="content">
-            <p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
-            <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
-            <p>You got 5 min. in which you all work in paralell on your own ideas.</p>
-            <div class="countdownTimer" data-clock-duration="300"></div>
-            <a href="#dialogExampleSheet" data-rel="popup">Show Example</a>
-            <div data-role="popup" id="dialogExampleSheet">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <div>    
-                    <img src="img/DesignStudio1.png" class="shadow">
-                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
-                </div>
-            </div>
-            
-            
-            <a href="#dialogExampleSheet" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
-        </div><!-- /content -->
-            
-    </div>
-        
-    <!--End page -->
-    <div data-role="page" id="presentReview">
-        <div data-role="header" data-id="dr" data-position="fixed">
-            <div data-role="navbar">
+     <div data-role="header" data-position="fixed" data-theme="a"><!-- fun fact: External toolbars need to be on the same dom-level as the pages-->
+            <div data-role="navbar" >
                 <ul>
                      <li>
                         <a href="#design" data-transition="slide" data-direction="reverse">Home</a>
@@ -109,8 +52,54 @@
                 </ul>                
             </div>
             <!-- /navbar -->
+    </div>  <!-- /header -->
+        
+    <div data-role="page" id="overview">
+        <div data-role="header">
+            <h1>DesignStudio Workshop</h1>
         </div>
         <!-- /header -->
+        <div data-role="content">
+            <p>This app guides you through a Design studio Workshop, an idea-generation method</p>
+            <p>Gather 2-5 People to do the workshop.</p>
+            <p>It needs to be clear what should archived,so you need a problem to solve or a challange</p>
+            <p>Please take care that you have the following items:</p>
+            <ul>
+                <li>A bunch of paper sheets (DINA4 DINA3) for each person</li>
+                <li>Something to draw for everybody (felt pens are great)</li>
+                <li>several green and red crayons or felt pens</li>            
+            </ul>
+            <a href="#design" data-role="button" data-icon="arrow-r" data-iconpos="right">begin workshop!</a>
+        </div>
+        <!-- /content -->
+            
+    </div>
+    <!--End page -->
+
+    <div data-role="page" id="design">
+        <div data-role="content">
+            <p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
+            <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
+            <p>You got 5 min. in which you all work in paralell on your own ideas.</p>
+            <div class="countdownTimer" data-clock-duration="300"></div>
+            <a href="#dialogExampleSheet" data-rel="popup">Show Example</a>
+            <div data-role="popup" id="dialogExampleSheet">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                <div>    
+                    <img src="img/DesignStudio1.png" class="shadow">
+                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
+                </div>
+            </div>
+            
+            
+            <a href="#dialogExampleSheet" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+        </div><!-- /content -->
+            
+    </div>
+        
+    <!--End page -->
+    <div data-role="page" id="presentReview">
+       
         <div data-role="content">
             <p>For each person:</p>
             <ol>

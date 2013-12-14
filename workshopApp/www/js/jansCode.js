@@ -109,11 +109,9 @@ $(document).on("pagebeforecreate",function(event){
     });//end each callback function and each function call   
 }); //end pagebeforecreate
 
-$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again. 
-
-    //We create the timer reacting on jquery mobile's "pagebeforecreate" event, so that the markup we insert here is enhanced by jquery mobile
-    
-   
+$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.
+	$( "[data-role='header'], [data-role='footer']" ).toolbar();
+    $( "[data-role='navbar']" ).navbar();  
 });
     
     
