@@ -149,13 +149,14 @@ $(document ).on( "pageshow",function(event, ui){
     });   
     
     //display submenu
+    //maybe one could solve this based on the link itself like in the "highlight submenu section"
     displayedSubnav = $("[data-workshop-role='subnav']").filter(":visible"); //the subnavigation currently displayed
     displayedSubnavSection = displayedSubnav.attr("id").split(config.siteIdSplittingCharacter)[0]; //the number character in the currently visible Id
     currentSubnav = $("#"+currentSection+"-navbar");
     
     if (displayedSubnavSection !== currentSection){
         displayedSubnav.css("display","none");
-        currentSubnav.css("display","block");
+        currentSubnav.css("display","");
     }
        
     
@@ -168,28 +169,32 @@ $(document ).on( "pageshow",function(event, ui){
         }else{
             $(element).addClass("ui-btn-active");
         }
-    
     });
-    /*
-    
-    select displayed submenu
-    
-    remove class 
-    
-    add class to current element.
-    
-    
-    */
-    
-    //TODO1
-    //split id-string at "-"
-    //assign first part to section, 2nd to step
-    //go through the section navbar, look for data-section… attrib match
-    ////go through the step navbar, look for data-section… attrib match
-
-
-
 
 });
     
+$(document ).on( "pagebeforechange",function(event, data){
+ console.log(event, data);
+ /*
+ seemingly, one can change the 
+ data.options.transition="slide"
+ data.options.reverse=true
+ object in order to influence the transition animation:
+ "It should be noted that callbacks can modify both the toPage and options properties to alter the behavior of the current changePage() call. http://api.jquerymobile.com/pagebeforechange/"
+ 
+ keep in mind (though possibly irrelevant) http://jquerymobile.com/blog/2013/10/24/jquery-mobile-1-4-0-rc1-released/
+ …but maybe we want to switch to pagebeforetransition as event?
+ */
+    
+/*
+the future page is: event.data.toPage
+the current page is data.options.fromPage
+
+*/
+    
+/*
+possibly we just should have "1-2-somestring" IDs at pages to determine their place 
+*/
+
+})
     
