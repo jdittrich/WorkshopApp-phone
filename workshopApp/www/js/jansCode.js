@@ -109,14 +109,7 @@ $(document).on("pagebeforecreate",function(event){
     });//end each callback function and each function call   
 }); //end pagebeforecreate
 
-$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.
-    var config, currentPageID, currentPageIDSplit_array, currentSection, currentStep;
-    
-    config={
-        siteIdSplittingCharacter:"-",
-        mainNavbarSelector:"#main-navbar"
-    }
-    
+$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.    
     //init external popups (http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/popup-outside-multipage/)
     $( "body [data-role='externalPopup']" ).enhanceWithin().popup(); //external popups work only if they are direct childs to body, but that selector is somehow not working. Fix if it does with you, I probably just mistyped.
     
@@ -125,17 +118,28 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
 	$( "[data-role='header'], [data-role='footer']" ).toolbar();
     $( "[data-role='navbar']" ).navbar();  
     
+    
+});
+
+$(document ).on( "pageshow",function(event, ui){
+    var config, currentPageID, currentPageIDSplit_array, currentSection, currentStep, currentSubnav, displayedSubnav,displayedSubnavSection;
+    
+    config={
+        siteIdSplittingCharacter:"-",
+        mainNavbarSelector:"#main-navbar"
+    }
+    
     //update external toolbar to show the currently active session
     //fromhere on: needs to go the beforepageshow-event-block!
     
     //we use the id property to determine which mainsection/subsection should be displayed and within this, which should be highlighted.
-    currentPageID = $(this).attr("id");//get the id string of the currently displayed page
+    currentPageID = $(event.target).attr("id");//get the id string of the currently displayed page
     currentPageIDSplit_array = currentPageID.split(config.siteIdSplittingCharacter);
     currentSection = currentPageIDSplit_array[0];
     currentStep = currentPageIDSplit_array[1];
     
     //highlight main section
-    $(config.mainNavbarSelector+" [data-role='navbar'] a").each(function(index,element){
+    $(config.mainNavbarSelector+" a").each(function(index,element){
         if(index !== currentSection && $(element).hasClass("ui-btn-active")){
              $(element).removeClass( "ui-btn-active" );
         }
@@ -145,14 +149,29 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
     });   
     
     //display submenu
-    /*
-    Which submenu is currently displayed? use: filter(":visible")
-    is it the right one
-    if not: hide the current, display the new. 
-    */
+    displayedSubnav = $("[data-workshop-role='subnav']").filter(":visible"); //the subnavigation currently displayed
+    displayedSubnavSection = displayedSubnav.attr("id").split(config.siteIdSplittingCharacter)[0]; //the number character in the currently visible Id
+    currentSubnav = $("#"+currentSection+"-navbar");
+    
+    if (displayedSubnavSection !== currentSection){
+        displayedSubnav.css("display","none");
+        currentSubnav.css("display","block");
+    }
+       
     
     //highlight submenu  
+    //currentSubnav.children("a.ui-btn-active").removeClass("ui-btn-active");
+    
+    currentSubnav.find("a").each(function(index, element){
+        if(currentPageID !== $(element).attr("href").substring(1)){ //we don't want the # at the begining of the link, so we start with the 2nd character, which has the index 1
+            $(element).removeClass("ui-btn-active");
+        }else{
+            $(element).addClass("ui-btn-active");
+        }
+    
+    });
     /*
+    
     select displayed submenu
     
     remove class 
@@ -167,6 +186,10 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
     //assign first part to section, 2nd to step
     //go through the section navbar, look for data-section… attrib match
     ////go through the step navbar, look for data-section… attrib match
+
+
+
+
 });
     
     
