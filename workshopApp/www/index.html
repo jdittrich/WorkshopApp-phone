@@ -15,7 +15,7 @@
     <!--<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">-->
     <link rel="stylesheet" href="css/workshopapp.css">
     <script src="js/libs/jquery2.min.js"></script>
-    <script src="js/libs/jquery.mobile-1.4.js"></script>-->
+    <script src="js/libs/jquery.mobile-1.4.js"></script>
      <!--<script src="js/libs/jquery.mobile-1.3.2.js"></script>-->
     <script src="js/libs/jquery.countdown.js"></script>
     <script src="js/jansCode.js"></script>
@@ -23,6 +23,22 @@
 </head>
 
 <body>
+    <div id="showExampleAnnotations" data-theme="a" data-role="externalPopup"><!-- fun fact: External popups need to be direct childs of "body". Data role popup is not needed-->
+        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+        <div>
+            <img src="img/DesignStudio3.png" class="shadow" >
+            <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
+        </div>
+     </div>
+        
+     <div data-role="externalPopup" id="showExampleSheet" data-theme="a">
+        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+        <div>
+            <img src="img/DesignStudio1.png" class="shadow" >
+            <p>Devide your sheet of paper in sections; draw one design idea per section</p>
+        </div>
+     </div>
+    
     <div id="container">
      <div data-role="header" data-position="fixed" data-theme="a"><!-- fun fact: External toolbars need to be on the same dom-level as the pages-->
          
@@ -32,7 +48,7 @@
             give the 2nd navbar step attributes like data-workshop-section="design"
             so the javascript function can update the currently highlighted section
         -->
-            <div data-role="navbar" >
+            <div data-role="navbar" id="main-navbar" >
                 <ul>
                      <li>
                         <a href="#design" data-transition="slide" data-direction="reverse">Home</a>
@@ -48,7 +64,45 @@
                     </li>
                 </ul>                
             </div>
-            <div data-role="navbar">
+         
+            <div data-role="navbar" id="0-navbar">
+                <ul>
+                    <li>
+                        <a href="#design" data-transition="slide" data-direction="reverse">Start</a>
+                    </li>
+
+                </ul>                
+            </div>   
+            <!-- TODO2: Currently the navbars are set to display none. 
+this needs to be done since jqm will calculate the height of the navbar once 
+based on what is displayed when initialized and no matter what changes, 
+the height remains. 
+This should be done by code on init. 
+Possibly we do it via marking the elements another data-… property?
+-->
+            <div data-role="navbar" id="1-navbar" style="display:none">
+                <ul>
+                    <li>
+                        <a href="#design" data-transition="slide" data-direction="reverse">Design</a>
+                    </li>
+                    <li>
+                        <a href="#presentReview" class="ui-btn-active ui-state-persist">Present & Review</a>
+                    </li>
+                </ul>                
+            </div>
+            
+            <div data-role="navbar" id="2-navbar" style="display:none" >
+                <ul>
+                    <li>
+                        <a href="#design" data-transition="slide" data-direction="reverse">Design</a>
+                    </li>
+                    <li>
+                        <a href="#presentReview" class="ui-btn-active ui-state-persist">Present & Review</a>
+                    </li>
+                </ul>                
+            </div>
+         
+            <div data-role="navbar" id="3-navbar" style="display:none" >
                 <ul>
                     <li>
                         <a href="#design" data-transition="slide" data-direction="reverse">Design</a>
@@ -60,8 +114,10 @@
             </div>
             <!-- /navbar -->
     </div>  <!-- /header -->
+     
         
-    <div data-role="page" id="overview">
+    
+    <div data-role="page" id="0-overview">
         <div data-role="header">
             <h1>DesignStudio Workshop</h1>
         </div>
@@ -89,17 +145,11 @@
             <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
             <p>You got 5 min. in which you all work in paralell on your own ideas.</p>
             <div class="countdownTimer" data-clock-duration="300"></div>
-            <a href="#dialogExampleSheet" data-rel="popup">Show Example</a>
-            <div data-role="popup" id="dialogExampleSheet">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <div>    
-                    <img src="img/DesignStudio1.png" class="shadow">
-                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
-                </div>
-            </div>
+            <a href="#showExampleSheet" data-rel="popup">Show Example</a>
             
             
-            <a href="#dialogExampleSheet" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+            
+            <a href="#1-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
         </div><!-- /content -->
             
     </div>
@@ -122,16 +172,9 @@
              
             <h4>Everybody presented and got feedback?</h4>
             <p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
-            <a href="#dialogExampleAnnotations" data-rel="popup">Show Example</a>
-            <div data-role="popup" id="dialogExampleAnnotations">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <div>
-                    <img src="img/DesignStudio4.png" class="shadow" >
-                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
-                </div>
-            </div>
-            
-            <a href="#design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse" >another round!</a>
+            <a href="#showExampleAnnotations" data-rel="popup">Show Example</a>
+                        
+            <a href="#2-design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse" >next round!</a>
         </div><!-- /content -->
     </div>    <!--End page -->
         
@@ -142,22 +185,13 @@
             <p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
             <p>You got 5 min. in which you all work in paralell on your own ideas.</p>
             <div class="countdownTimer" data-clock-duration="300"></div>
-            <a href="#dialogExampleSheet" data-rel="popup">Show Example</a>
-            <div data-role="popup" id="dialogExampleSheet">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <div>    
-                    <img src="img/DesignStudio1.png" class="shadow">
-                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
-                </div>
-            </div>
+            <a href="#showExampleSheet" data-rel="popup">Show Example</a>
             
-            
-            <a href="#dialogExampleSheet" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
-        </div><!-- /content -->
-            
-    </div>
+            <a href="#2-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+        </div><!-- /content -->        
+    </div>    <!--End page -->
         
-    <!--End page -->
+
     <div data-role="page" id="2-presentReview">
        
         <div data-role="content">
@@ -175,14 +209,7 @@
              
             <h4>Everybody presented and got feedback?</h4>
             <p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
-            <a href="#dialogExampleAnnotations" data-rel="popup">Show Example</a>
-            <div data-role="popup" id="dialogExampleAnnotations">
-                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                <div>
-                    <img src="img/DesignStudio4.png" class="shadow" >
-                    <p>Annotate the sketch: Red for pointing out problems, green for good solutions</p>
-                </div>
-            </div>
+            <a href="#showExampleAnnotations" data-rel="popup">Show Example</a>
             
             <a href="#design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse" >another round!</a>
         </div><!-- /content -->

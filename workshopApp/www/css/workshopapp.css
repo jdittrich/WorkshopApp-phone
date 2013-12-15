@@ -15,15 +15,15 @@
 	border-radius:5px;
 }
 
-div[data-role="popup"] div {
+div[data-role="externalPopup"] div {
     width:20em; 
 }
 
-div[data-role="popup"] div p{
+div[data-role="externalPopup"] p{ /*externalPopup is not a jqueryMobile role, but one I made up for use as selector*/
     padding:0.5em;
 }
 
-div[data-role="popup"] div img{
+div[data-role="externalPopup"] img{ /*externalPopup is not a jqueryMobile role, but one I made up for use as selector*/
     width:19em;
     margin-left:0.5em;
 }

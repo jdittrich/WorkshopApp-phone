@@ -110,13 +110,58 @@ $(document).on("pagebeforecreate",function(event){
 }); //end pagebeforecreate
 
 $(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.
+    var config, currentPageID, currentPageIDSplit_array, currentSection, currentStep;
+    
+    config={
+        siteIdSplittingCharacter:"-",
+        mainNavbarSelector:"#main-navbar"
+    }
+    
+    //init external popups (http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/popup-outside-multipage/)
+    $( "body [data-role='externalPopup']" ).enhanceWithin().popup(); //external popups work only if they are direct childs to body, but that selector is somehow not working. Fix if it does with you, I probably just mistyped.
+    
     
     //init external toolbars. Documentation a bit scattered, but start at http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/toolbar-fixed-external/ 
 	$( "[data-role='header'], [data-role='footer']" ).toolbar();
     $( "[data-role='navbar']" ).navbar();  
     
     //update external toolbar to show the currently active session
-    $(this).attr("id");
+    //fromhere on: needs to go the beforepageshow-event-block!
+    
+    //we use the id property to determine which mainsection/subsection should be displayed and within this, which should be highlighted.
+    currentPageID = $(this).attr("id");//get the id string of the currently displayed page
+    currentPageIDSplit_array = currentPageID.split(config.siteIdSplittingCharacter);
+    currentSection = currentPageIDSplit_array[0];
+    currentStep = currentPageIDSplit_array[1];
+    
+    //highlight main section
+    $(config.mainNavbarSelector+" [data-role='navbar'] a").each(function(index,element){
+        if(index !== currentSection && $(element).hasClass("ui-btn-active")){
+             $(element).removeClass( "ui-btn-active" );
+        }
+        if(index == currentSection){
+            $(element).addClass( "ui-btn-active");
+        }   
+    });   
+    
+    //display submenu
+    /*
+    Which submenu is currently displayed? use: filter(":visible")
+    is it the right one
+    if not: hide the current, display the new. 
+    */
+    
+    //highlight submenu  
+    /*
+    select displayed submenu
+    
+    remove class 
+    
+    add class to current element.
+    
+    
+    */
+    
     //TODO1
     //split id-string at "-"
     //assign first part to section, 2nd to step
