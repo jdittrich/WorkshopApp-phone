@@ -140,10 +140,11 @@ $(document ).on( "pageshow",function(event, ui){
     
     //highlight main section
     $(config.mainNavbarSelector+" a").each(function(index,element){
-        if(index !== currentSection && $(element).hasClass("ui-btn-active")){
+        //index starts with 0, so we add 1 each time it is compared with the natural-number like ids
+        if(index+1 !== currentSection && $(element).hasClass("ui-btn-active")){
              $(element).removeClass( "ui-btn-active" );
         }
-        if(index == currentSection){
+        if(index+1 == currentSection){
             $(element).addClass( "ui-btn-active");
         }   
     });   
@@ -161,8 +162,6 @@ $(document ).on( "pageshow",function(event, ui){
        
     
     //highlight submenu  
-    //currentSubnav.children("a.ui-btn-active").removeClass("ui-btn-active");
-    
     currentSubnav.find("a").each(function(index, element){
         if(currentPageID !== $(element).attr("href").substring(1)){ //we don't want the # at the begining of the link, so we start with the 2nd character, which has the index 1
             $(element).removeClass("ui-btn-active");
@@ -170,11 +169,64 @@ $(document ).on( "pageshow",function(event, ui){
             $(element).addClass("ui-btn-active");
         }
     });
-
 });
     
-$(document ).on( "pagebeforechange",function(event, data){
- console.log(event, data);
+$(document ).on( "pagebeforechange",function(event, data){  
+    /*
+    functionality that finds the digits the id starts with.
+    it matches strings so it is rather unsave/dirty. 
+    Alternative: give pages a data-order attribute and have "43-33-32" or the like as attribute than you dont have the error prone extration operation going on.
+    */
+    
+    var pageTo, pageFrom, pageToOrderNumber, pageFromOrderNumber;
+    
+    if (data.toPage instanceof jQuery){
+        pageToString = data.toPage.attr("id");
+    }else if (typeof data.toPage === "string"){
+        pageToString = data.toPage;
+    }
+        
+    
+    /*1. Get the substring from the last occurence of "#" to the end of the string
+      2. in this string, match all numbers followed by a "-" like 1- in "asdsa1-awde"
+      3. an array will be returned. We dont expect more than 1 match, but even if, just take the first item [0] 
+      4. replace all "-" with "" (nothing) to get the number itself */
+    if(pageToString.search(/#.*[\d-]/) !== -1){
+        pageToOrderNumber= parseFloat(pageToString.substring(pageToString.lastIndexOf("#")).match(/[\d-]+/)[0].replace(/-/g,""));
+        console.log(pageToOrderNumber);
+    }
+    
+    
+    
+    if (data.options.fromPage instanceof jQuery){ //in a single page app it should be always a jq object
+        pageFromString = data.options.fromPage.attr("id");
+    }
+    
+     if(pageToString.search(/#.*[\d-]/) !== -1){//there is some "#" and some digit 
+         
+         
+        /*1. Get the substring from the last occurence of "#" to the end of the string
+      2. in this string, match all numbers followed by a "-" like 1- in "asdsa1-awde"
+      3. an array will be returned. We dont expect more than 1 match, but even if, just take the first item [0] 
+      4. replace all "-" with "" (nothing) to get the number itself */  
+         pageFromOrderNumber = parseFloat(pageFromString.substring(pageFromString.lastIndexOf("#")).match(/[\d-]+/)[0].replace(/-/g,""));
+             
+    }
+    
+    //If both numbers are there…
+    if(!isNaN(pageToOrderNumber)&& !isNaN(pageFromOrderNumber)){ //there is just a native "isNaN" so we reverse it (!) to make it an is-number-function
+        if(pageToOrderNumber>pageFromOrderNumber){
+            data.options.transition = "slide";
+            data.options.reverse = false;
+        }
+        if(pageToOrderNumber<pageFromOrderNumber){
+            data.options.transition = "slide";
+            data.options.reverse = true;
+        }
+    }
+    
+    console.log(pageFromOrderNumber, pageToOrderNumber);
+    
  /*
  seemingly, one can change the 
  data.options.transition="slide"
@@ -186,6 +238,8 @@ $(document ).on( "pagebeforechange",function(event, data){
  …but maybe we want to switch to pagebeforetransition as event?
  */
     
+    
+    
 /*
 the future page is: event.data.toPage
 the current page is data.options.fromPage
@@ -193,7 +247,7 @@ the current page is data.options.fromPage
 */
     
 /*
-possibly we just should have "1-2-somestring" IDs at pages to determine their place 
+possibly we just should have "1-2-somestring" IDs at pages to determine their place --> did it
 */
 
 })

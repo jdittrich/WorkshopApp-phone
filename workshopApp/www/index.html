@@ -51,24 +51,24 @@
             <div data-role="navbar" id="main-navbar">
                 <ul>
                      <li>
-                        <a href="#0-overview" data-transition="slide" data-direction="reverse">Home</a>
+                        <a href="#1-1-overview">Home</a>
                     </li>
                     <li>
-                        <a href="#1-design" data-transition="slide" data-direction="reverse">Round 1</a>
+                        <a href="#2-1-design">Round 1</a>
                     </li>
                     <li>
-                        <a href="#2-design" >Round 2</a>
+                        <a href="#3-1-design" >Round 2</a>
                     </li>
                     <li>
-                        <a href="#3-design">Refine</a>
+                        <a href="#4-1-design">Refine</a>
                     </li>
                 </ul>                
             </div>
          
-            <div data-role="navbar" id="0-navbar" data-workshop-role="subnav">
+            <div data-role="navbar" id="1-navbar" data-workshop-role="subnav">
                 <ul>
                     <li>
-                        <a href="#0-overview" data-transition="slide" data-direction="reverse">Start</a>
+                        <a href="#1-1-overview" data-transition="slide" data-direction="reverse">Start</a>
                     </li>
 
                 </ul>                
@@ -80,35 +80,35 @@ the height remains.
 This should be done by code on init. 
 Possibly we do it via marking the elements another data-… property?
 -->
-            <div data-role="navbar" id="1-navbar" style="display:none" data-workshop-role="subnav">
+            <div data-role="navbar" id="2-navbar" style="display:none" data-workshop-role="subnav">
                 <ul>
                     <li>
-                        <a href="#1-design" data-transition="slide" data-direction="reverse">Design</a>
+                        <a href="#2-1-design" data-transition="slide" data-direction="reverse">Design</a>
                     </li>
                     <li>
-                        <a href="#1-presentReview" >Present & Review</a>
+                        <a href="#2-2-presentReview" >Present & Review</a>
                     </li>
                 </ul>                
             </div>
             
-            <div data-role="navbar" id="2-navbar" style="display:none" data-workshop-role="subnav">
+            <div data-role="navbar" id="3-navbar" style="display:none" data-workshop-role="subnav">
                 <ul>
                     <li>
-                        <a href="#2-design" data-transition="slide" data-direction="reverse">Design</a>
+                        <a href="#3-1-design" data-transition="slide" data-direction="reverse">Design</a>
                     </li>
                     <li>
-                        <a href="#2-presentReview" >Present & Review</a>
+                        <a href="#3-2-presentReview" >Present & Review</a>
                     </li>
                 </ul>                
             </div>
          
-            <div data-role="navbar" id="3-navbar" style="display:none" data-workshop-role="subnav">
+            <div data-role="navbar" id="4-navbar" style="display:none" data-workshop-role="subnav">
                 <ul>
                     <li>
-                        <a href="#3-design" data-transition="slide" data-direction="reverse">Design</a>
+                        <a href="#4-1-design" data-transition="slide" data-direction="reverse">Design</a>
                     </li>
                     <li>
-                        <a href="#3-presentReview" >Present & Review</a>
+                        <a href="#4-2-presentReview" >Present & Review</a>
                     </li>
                 </ul>                
             </div>
@@ -117,7 +117,7 @@ Possibly we do it via marking the elements another data-… property?
      
         
     
-    <div data-role="page" id="0-overview">
+    <div data-role="page" id="1-1-overview">
         <!-- /header -->
         <div data-role="content">
             <p>This app guides youthrough a Design studio Workshop, an idea-generation method</p>
@@ -136,7 +136,7 @@ Possibly we do it via marking the elements another data-… property?
     </div>
     <!--End page -->
 
-    <div data-role="page" id="1-design">
+    <div data-role="page" id="2-1-design">
         <div data-role="content">
             1design
             <p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
@@ -147,13 +147,13 @@ Possibly we do it via marking the elements another data-… property?
             
             
             
-            <a href="#1-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+            <a href="#2-2-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
         </div><!-- /content -->
             
     </div>
         
     <!--End page -->
-    <div data-role="page" id="1-presentReview">
+    <div data-role="page" id="2-2-presentReview">
        
         <div data-role="content">
             1presentRev
@@ -173,12 +173,12 @@ Possibly we do it via marking the elements another data-… property?
             <p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
             <a href="#showExampleAnnotations" data-rel="popup">Show Example</a>
                         
-            <a href="#2-design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse" >next round!</a>
+            <a href="#3-1-design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse" >next round!</a>
         </div><!-- /content -->
     </div>    <!--End page -->
         
         
-    <div data-role="page" id="2-design">
+    <div data-role="page" id="3-1-design">
         <div data-role="content">
             2design
             <p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
@@ -187,12 +187,12 @@ Possibly we do it via marking the elements another data-… property?
             <div class="countdownTimer" data-clock-duration="300"></div>
             <a href="#showExampleSheet" data-rel="popup">Show Example</a>
             
-            <a href="#2-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+            <a href="#3-2-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
         </div><!-- /content -->        
     </div>    <!--End page -->
         
 
-    <div data-role="page" id="2-presentReview">
+    <div data-role="page" id="3-2-presentReview">
        
         <div data-role="content">
             2presentRev
