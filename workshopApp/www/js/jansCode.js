@@ -1,6 +1,3 @@
-var reset
-
-
 var createTimer = function(selector,time){
         var thisContainer,timerContainer, timer,startButton, resetButton, buttonContainer, timerEnd, timerStart, timerReset, notificationContainer;
         var config={
@@ -185,9 +182,9 @@ $(document ).on( "pagebeforechange",function(event, data){
         */
         var pageTo, pageToString, pageToOrderNumber,pageFrom, pageFromString,  pageFromOrderNumber;
         
-        if (data.toPage instanceof jQuery){
+        /*if (data.toPage instanceof jQuery){
             pageToString = data.toPage.attr("id");
-        }else if (typeof data.toPage === "string"){
+        }else*/ if (typeof data.toPage === "string"){
             pageToString = data.toPage;
         }else{
             return;
@@ -211,14 +208,14 @@ $(document ).on( "pagebeforechange",function(event, data){
             return;
         }
         
-        if(pageFromString.search(/#.*[\d-]/) !== -1){//there is some "#" and some digit 
+        if(pageFromString.search(/[\d-]/) !== -1){//there is some  digit
              
              
             /*1. Get the substring from the last occurence of "#" to the end of the string
           2. in this string, match all numbers followed by a "-" like 1- in "asdsa1-awde"
           3. an array will be returned. We dont expect more than 1 match, but even if, just take the first item [0] 
           4. replace all "-" with "" (nothing) to get the number itself */  
-             pageFromOrderNumber = parseFloat(pageFromString.substring(pageFromString.lastIndexOf("#")).match(/[\d-]+/)[0].replace(/-/g,""));
+            pageFromOrderNumber = parseFloat(pageFromString.match(/[\d-]+/)[0].replace(/-/g,""));
                  
         }
         
@@ -260,4 +257,3 @@ possibly we just should have "1-2-somestring" IDs at pages to determine their pl
 */
 
 })
-    
