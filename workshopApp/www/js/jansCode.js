@@ -23,7 +23,8 @@ var createTimer = function(selector,time){
             
             //RESET Part
             thisContainer.fadeTo(400,0.1).fadeTo(600,1, function(){
-                notificationContainer.fadeTo(200,1);
+                //notificationContainer.fadeTo(200,1);
+                notificationContainer.show(400);
                 $(timer).countdown('option', {until: time});
                 $(timer).countdown("pause"); 
             });
@@ -35,7 +36,8 @@ var createTimer = function(selector,time){
         timerStart = function(){
             $("."+config.timerContainerClass).trigger("timerstart",{"target":timerContainer}); //with on("timerstart"…) timers can get this event.
             $(timer).countdown("resume");
-            notificationContainer.fadeTo(200,0.0);
+            //notificationContainer.fadeTo(200,0.0);
+            notificationContainer.hide();
         };
         
         //resets the timer to the orignally passed timer
@@ -49,7 +51,7 @@ var createTimer = function(selector,time){
         notificationContainer = $('<div/>',{
             "class":config.timerNotificationClass,
             "text":config.timerNotificationText
-        }).css("opacity","0.0");
+        }).hide();
         
         timer = $(timerContainer)
         .countdown({until:time, //time in seconds
@@ -113,8 +115,9 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
     
     
     //init external toolbars. Documentation a bit scattered, but start at http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/toolbar-fixed-external/ 
-	$( "[data-role='header'], [data-role='footer']" ).toolbar();
-    $( "[data-role='navbar']" ).navbar();  
+	$( "[data-role='navbar']" ).navbar();  
+    $( "[data-role='header'], [data-role='footer']" ).toolbar();
+    
     
     
 });
@@ -184,7 +187,8 @@ $(document ).on( "pagebeforechange",function(event, data){
         
         /*if (data.toPage instanceof jQuery){
             pageToString = data.toPage.attr("id");
-        }else*/ if (typeof data.toPage === "string"){
+        }else*/ 
+        if (typeof data.toPage === "string"){
             pageToString = data.toPage;
         }else{
             return;
@@ -226,13 +230,14 @@ $(document ).on( "pagebeforechange",function(event, data){
                 data.options.reverse = false;
             }
             if(pageToOrderNumber<pageFromOrderNumber){
-                data.options.transition = "slide";
-                data.options.reverse = true;
+/               data.options.transition = "slide";
+/               data.options.reverse = true;
             }
         }
         
-        console.log(pageFromOrderNumber, pageToOrderNumber);
-    }(event,data))
+        //console.log(pageFromOrderNumber, pageToOrderNumber);
+    }(event,data));
+    
  /*
  seemingly, one can change the 
  data.options.transition="slide"
