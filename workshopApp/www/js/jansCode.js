@@ -5,6 +5,7 @@ var createTimer = function(selector,time){
             timerNotificationClass:"clock-custom-notifications",
             timerContainerClass: "clock-custom-container",
             timerButtonsContainerClass:"clock-custom-button-container",
+            timerButtonClass: "btn btn-default"
         };
         
         thisContainer = $(selector);
@@ -69,12 +70,12 @@ var createTimer = function(selector,time){
     
         startButton = $("<button/>",{ //START-Button
             text:"start",
-            "class":"clock-custombutton clock-custombuttoButtonsContainerClassn-start"
+            "class":config.timerButtonClass
         }).click(timerStart);
     
         resetButton = $("<button/>",{
             text:"reset", 
-            "class":"clock-custombutton flipclock-custombutton-reset"
+            "class":config.timerButtonClass
         }).click(timerReset);
         
         //$(selector).append(timerContainer);
@@ -86,15 +87,12 @@ var createTimer = function(selector,time){
 
 
 
-$(document).bind("mobileinit", function(){
-    //apply jQMobile overrides here
-    $.mobile.defaultPageTransition = "none";
-});
+
 
 $(document).on("pagecreate",function(){}); //equivalten to jQuery's ready
 
-$(document).on("pagebeforecreate",function(event){
-    $(event.target).find(".countdownTimer").each(function(index, element){
+$(function(){
+    $(".countdownTimer").each(function(index, element){
         if(!createTimer){
             throw "no createTimer function present, can't create timer!";
         }
@@ -109,7 +107,7 @@ $(document).on("pagebeforecreate",function(event){
     });//end each callback function and each function call   
 }); //end pagebeforecreate
 
-$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.    
+/*$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.    
     //init external popups (http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/popup-outside-multipage/)
     $( "body [data-role='externalPopup']" ).enhanceWithin().popup(); //external popups work only if they are direct childs to body, but that selector is somehow not working. Fix if it does with you, I probably just mistyped.
     
@@ -120,7 +118,7 @@ $(document).ready(function () { //was: onbeforepageload, but this was stupid: ea
     
     
     
-});
+}); */
 
 $(document ).on( "pageshow",function(event, ui){
     var config, currentPageID, currentPageIDSplit_array, currentSection, currentStep, currentSubnav, displayedSubnav,displayedSubnavSection;
@@ -230,8 +228,8 @@ $(document ).on( "pagebeforechange",function(event, data){
                 data.options.reverse = false;
             }
             if(pageToOrderNumber<pageFromOrderNumber){
-/               data.options.transition = "slide";
-/               data.options.reverse = true;
+							data.options.transition = "slide";
+							data.options.reverse = true;
             }
         }
         
