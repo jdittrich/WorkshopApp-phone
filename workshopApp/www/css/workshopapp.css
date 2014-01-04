@@ -40,3 +40,21 @@ body{
 #subnavContainer ul.nav {
     padding-top: 4px; /*space between the two navbars*/
 }
+
+
+/*#content-steps .fade {
+  opacity: 0;
+  transform: translate(300px,0);
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+#content-steps .fade.in {
+  	transform: translate(0,0);
+	opacity: 1;
+}
+*/
+
+#content-steps{
+padding-left:0.2em;
+}
+
