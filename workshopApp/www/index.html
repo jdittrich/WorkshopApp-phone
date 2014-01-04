@@ -32,29 +32,29 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<ul class="nav nav-pills" id="stepsnavContainer">
 			<li  class="active">
-				<a href="#0-home" data-toggle="tab">Home</a>
+				<a href="#1-step" data-toggle="tab">Home</a>
 			</li>
 			<li>
-				<a href="#1-round" data-toggle="tab">1st Round</a>
+				<a href="#2-step" data-toggle="tab">1st Round</a>
 			</li>
 			<li>
-				<a href="#2-round" data-toggle="tab">2nd Round</a>
+				<a href="#3-step" data-toggle="tab">2nd Round</a>
 			</li>
 			<li>
-				<a href="#3-round" data-toggle="tab">Refinement</a>
+				<a href="#4-step" data-toggle="tab">Refinement</a>
 			</li>
 		</ul>
 		<!-- /navbar -->
 		
 		<div class="tab-content" id="subnavContainer">
-			<div class="tab-pane active" id="0-home">
+			<div class="tab-pane active" id="1-step">
 				<ul class="nav nav-tabs">
 					<li class="active">
 						<a href="#1-1-overview" data-toggle="tab"  >overview</a>
 					</li>
 				</ul>
 			</div>
-			<div class="tab-pane" id="1-round">
+			<div class="tab-pane" id="2-step">
 				<ul class="nav nav-tabs">
 					<li>
 						<a href="#2-1-design" data-toggle="tab">Design</a>
@@ -64,7 +64,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="tab-pane" id="2-round">
+			<div class="tab-pane" id="3-step">
 				<ul class="nav nav-tabs">
 					<li>
 						<a href="#3-1-design" data-toggle="tab">Design</a>
@@ -74,7 +74,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="tab-pane" id="3-round">
+			<div class="tab-pane" id="4-step">
 				<ul class="nav nav-tabs">
 					<li>
 						<a href="#4-1-design" data-toggle="tab">Design</a>
@@ -89,7 +89,7 @@
 
 
 
-	<div class="tab-content">
+	<div class="tab-content" id="content-steps">
 		<div  class="tab-pane active" id="1-1-overview">
 		<!-- /header -->
 			<p>This app guides youthrough a Design studio Workshop, an idea-generation method</p>
@@ -101,7 +101,7 @@
 				<li>Something to draw for everybody (felt pens are great)</li>
 				<li>several green and red crayons or felt pens</li>
 			</ul>
-			<a href="#design" data-role="button" data-icon="arrow-r" data-iconpos="right">begin workshop!</a>
+			<a href="#2-1-design" data-toggle="tab">begin workshop!</a>
 	</div>
 	<!--End page -->
 
@@ -115,7 +115,7 @@
 
 
 
-			<a href="#2-2-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+			<a href="#2-2-presentReview" data-toggle="tab">Present and Review</a>
 
 	</div>
 
@@ -138,13 +138,12 @@
 			<p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
 			<a href="#showExampleAnnotations" data-rel="popup">Show Example</a>
 
-			<a href="#3-1-design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse">next round!</a>
+			<a href="#3-1-design" data-toggle="tab">next round!</a>
 	</div>
 	<!--End page -->
 
 
 	<div  class="tab-pane" id="3-1-design">
-		<div data-role="content">
 			2design
 			<p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
 			<p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
@@ -152,7 +151,7 @@
 			<div class="countdownTimer" data-clock-duration="300"></div>
 			<a href="#showExampleSheet" data-rel="popup">Show Example</a>
 
-			<a href="#3-2-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+			<a href="#3-2-presentReview" data-toggle="tab">Present and Review</a>
 	</div>
 	<!--End page -->
 
@@ -176,7 +175,7 @@
 			<p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
 			<a href="#showExampleAnnotations" data-rel="popup">Show Example</a>
 
-			<a href="#design" data-role="button" data-icon="refresh" data-iconpos="left" data-transition="slide" data-direction="reverse">another round!</a>
+			<a href="#4-1-design" data-toggle="tab">another round!</a>
 
 	</div>
 	<!--End page -->
@@ -189,7 +188,7 @@
 			<div class="countdownTimer" data-clock-duration="300"></div>
 			<a href="#showExampleSheet" data-rel="popup">Show Example</a>
 
-			<a href="#4-2-presentReview" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide">Present and Review</a>
+			<a href="#4-2-presentReview" data-toggle="tab">Present and Review</a>
 
 	</div>
 	<!--End page -->
@@ -209,7 +208,8 @@
 			<a href="#showExampleAnnotations" data-rel="popup">Show Example</a>
 
 	</div>
-	<!--End page --></div>
+	<!--End page -->
+	</div>
 
 	<script type="text/javascript">
 		app.initialize();
