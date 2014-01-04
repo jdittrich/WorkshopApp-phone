@@ -88,11 +88,10 @@ var createTimer = function(selector,time){
 
 
 
-
-$(document).on("pagecreate",function(){}); //equivalten to jQuery's ready
-
 $(function(){
-    $(".countdownTimer").each(function(index, element){
+
+	//create Timers
+	$(".countdownTimer").each(function(index, element){
         if(!createTimer){
             throw "no createTimer function present, can't create timer!";
         }
@@ -104,159 +103,39 @@ $(function(){
             createTimer(element,duration);//end createTimer call
         
         }//end else
-    });//end each callback function and each function call   
-}); //end pagebeforecreate
+    });//end each callback function and each function call
 
-/*$(document).ready(function () { //was: onbeforepageload, but this was stupid: each time the page was loaded it was executed again.    
-    //init external popups (http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/popup-outside-multipage/)
-    $( "body [data-role='externalPopup']" ).enhanceWithin().popup(); //external popups work only if they are direct childs to body, but that selector is somehow not working. Fix if it does with you, I probably just mistyped.
-    
-    
-    //init external toolbars. Documentation a bit scattered, but start at http://view.jquerymobile.com/1.4.0-rc.1/dist/demos/toolbar-fixed-external/ 
-	$( "[data-role='navbar']" ).navbar();  
-    $( "[data-role='header'], [data-role='footer']" ).toolbar();
-    
-    
-    
-}); */
+	//activate the 1st link in the subnav each time a mainnav link is clicked
+	$('#stepsnavContainer a').click(function (e) {
+		e.preventDefault();
+		$('#subnavContainer li[class="active"]').removeClass("active");
+		var hrefString = $(e.target).attr("href");
+		if(typeof hrefString ==="string"){
+			$('#subnavContainer '+hrefString+" a:first").tab("show");
+		}
+	}); //click( and function(){ end;
 
-$(document ).on( "pageshow",function(event, ui){
-    var config, currentPageID, currentPageIDSplit_array, currentSection, currentStep, currentSubnav, displayedSubnav,displayedSubnavSection;
-    
-    config={
-        siteIdSplittingCharacter:"-",
-        mainNavbarSelector:"#main-navbar"
-    }
-    
-    //update external toolbar to show the currently active session
-    //fromhere on: needs to go the beforepageshow-event-block!
-    
-    //we use the id property to determine which mainsection/subsection should be displayed and within this, which should be highlighted.
-    currentPageID = $(event.target).attr("id");//get the id string of the currently displayed page
-    currentPageIDSplit_array = currentPageID.split(config.siteIdSplittingCharacter);
-    currentSection = currentPageIDSplit_array[0];
-    currentStep = currentPageIDSplit_array[1];
-    
-    //highlight main section
-    $(config.mainNavbarSelector+" a").each(function(index,element){
-        //index starts with 0, so we add 1 each time it is compared with the natural-number like ids
-        if(index+1 !== currentSection && $(element).hasClass("ui-btn-active")){
-             $(element).removeClass( "ui-btn-active" );
-        }
-        if(index+1 == currentSection){
-            $(element).addClass( "ui-btn-active");
-        }   
-    });   
-    
-    //display submenu
-    //maybe one could solve this based on the link itself like in the "highlight submenu section"
-    displayedSubnav = $("[data-workshop-role='subnav']").filter(":visible"); //the subnavigation currently displayed
-    displayedSubnavSection = displayedSubnav.attr("id").split(config.siteIdSplittingCharacter)[0]; //the number character in the currently visible Id
-    currentSubnav = $("#"+currentSection+"-navbar");
-    
-    if (displayedSubnavSection !== currentSection){
-        displayedSubnav.css("display","none");
-        currentSubnav.css("display","");
-    }
-       
-    
-    //highlight submenu  
-    currentSubnav.find("a").each(function(index, element){
-        if(currentPageID !== $(element).attr("href").substring(1)){ //we don't want the # at the begining of the link, so we start with the 2nd character, which has the index 1
-            $(element).removeClass("ui-btn-active");
-        }else{
-            $(element).addClass("ui-btn-active");
-        }
-    });
-});
-    
-$(document ).on( "pagebeforechange",function(event, data){  
-    
-    (function(event, data){
-        /*
-        functionality that finds the digits the id starts with.
-        it matches strings so it is rather unsave/dirty. 
-        
-        Wrapped into a function so we can return or throw if trouble occurs
-        
-        Alternative: give pages a data-order attribute and have "43-33-32" or the like as attribute than you dont have the error prone extration operation going on.
-        */
-        var pageTo, pageToString, pageToOrderNumber,pageFrom, pageFromString,  pageFromOrderNumber;
-        
-        /*if (data.toPage instanceof jQuery){
-            pageToString = data.toPage.attr("id");
-        }else*/ 
-        if (typeof data.toPage === "string"){
-            pageToString = data.toPage;
-        }else{
-            return;
-        }
-            
-        
-        /*1. Get the substring from the last occurence of "#" to the end of the string
-          2. in this string, match all numbers followed by a "-" like 1- in "asdsa1-awde"
-          3. an array will be returned. We dont expect more than 1 match, but even if, just take the first item [0] 
-          4. replace all "-" with "" (nothing) to get the number itself */
-        if(pageToString.search(/#.*[\d-]/) !== -1){
-            pageToOrderNumber= parseFloat(pageToString.substring(pageToString.lastIndexOf("#")).match(/[\d-]+/)[0].replace(/-/g,""));
-            console.log(pageToOrderNumber);
-        }
-        
-        
-        
-        if (data.options.fromPage instanceof jQuery){ //in a single page app it should be always a jq object
-            pageFromString = data.options.fromPage.attr("id");
-        }else{
-            return;
-        }
-        
-        if(pageFromString.search(/[\d-]/) !== -1){//there is some  digit
-             
-             
-            /*1. Get the substring from the last occurence of "#" to the end of the string
-          2. in this string, match all numbers followed by a "-" like 1- in "asdsa1-awde"
-          3. an array will be returned. We dont expect more than 1 match, but even if, just take the first item [0] 
-          4. replace all "-" with "" (nothing) to get the number itself */  
-            pageFromOrderNumber = parseFloat(pageFromString.match(/[\d-]+/)[0].replace(/-/g,""));
-                 
-        }
-        
-        //If both numbers are there…
-        if(!isNaN(pageToOrderNumber)&& !isNaN(pageFromOrderNumber)){ //there is just a native "isNaN" so we reverse it (!) to make it an is-number-function
-            if(pageToOrderNumber>pageFromOrderNumber){
-                data.options.transition = "slide";
-                data.options.reverse = false;
-            }
-            if(pageToOrderNumber<pageFromOrderNumber){
-							data.options.transition = "slide";
-							data.options.reverse = true;
-            }
-        }
-        
-        //console.log(pageFromOrderNumber, pageToOrderNumber);
-    }(event,data));
-    
- /*
- seemingly, one can change the 
- data.options.transition="slide"
- data.options.reverse=true
- object in order to influence the transition animation:
- "It should be noted that callbacks can modify both the toPage and options properties to alter the behavior of the current changePage() call. http://api.jquerymobile.com/pagebeforechange/"
- 
- keep in mind (though possibly irrelevant) http://jquerymobile.com/blog/2013/10/24/jquery-mobile-1-4-0-rc1-released/
- …but maybe we want to switch to pagebeforetransition as event?
- */
-    
-    
-    
-/*
-the future page is: event.data.toPage
-the current page is data.options.fromPage
+	//update active tabs
+	$('#content-steps div a[data-toggle="tab"]').click(function(e){
+		e.preventDefault();
+		$('#subnavContainer li[class="active"]').removeClass("active");
+		$('#stepsnavContainer li[class="active"]').removeClass("active");
 
-*/
-    
-/*
-possibly we just should have "1-2-somestring" IDs at pages to determine their place --> did it
-*/
+		//determine the main nav to activate by extracting the number from the link
+		//---------------------------------
+		var hrefString = $(e.target).attr("href");
 
-})
+		if(typeof hrefString !=="string"){
+			return;
+		}
+		var mainNavNumber = parseFloat(hrefString.slice(1));
+		if(mainNavNumber > -1){
+				$("#stepsnavContainer li").eq(mainNavNumber-1).children("a").tab("show"); //-1 since document is 1 based and eq is 0 based-counted
+		}
+
+		//activate the subnav link with the same target as the clicked link
+		//---------------------------------
+		$("#subnavContainer li a[href="+hrefString+"]").parent().addClass("active");
+	});
+}); //end ready
+
