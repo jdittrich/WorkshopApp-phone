@@ -5,7 +5,7 @@ var createTimer = function(selector,time){
             timerNotificationClass:"clock-custom-notifications label label-info",
             timerContainerClass: "clock-custom-container",
             timerButtonsContainerClass:"clock-custom-button-container",
-            timerButtonClass: "btn btn-default"
+            timerButtonClass: "btn btn-default clock-custom-button"
         };
         
         thisContainer = $(selector);

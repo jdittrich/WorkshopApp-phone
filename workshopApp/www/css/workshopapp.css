@@ -4,8 +4,8 @@
     width: 3em;
     vertical-align: top;
     */
-    
     font-size: 5.5em;
+	line-height:1em;
     
     
 }
@@ -17,42 +17,22 @@
     */
 }
 
-.clock-custombutton{
-    display: inline-block;
-    width: 45% !important; /*otherwise overwritten by more specific jqm stylesheet*/
-    margin-right: 1em;
+.clock-custom-button-container button{
+    /*display: inline-block;
+    width: 45% !important; */
+    margin-right: 0.5em;
+	width: 6em;
 }
 
-.shadow {
-	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
-	border-radius:5px;
-}
-
-div[data-role="externalPopup"] div {
-    width:20em; 
-}
-
-div[data-role="externalPopup"] p{ /*externalPopup is not a jqueryMobile role, but one I made up for use as selector*/
-    padding:0.5em;
-}
-
-div[data-role="externalPopup"] img{ /*externalPopup is not a jqueryMobile role, but one I made up for use as selector*/
-    width:19em;
-    margin-left:0.5em;
-}
-
-ul.ui-grid-solo li.ui-block-a{ /*for some reasons there waws alway a  "margin-left: 0.3125em;" which caused a gap to the left screen edge (jqm 1.4)*/
-    margin-left:0;
-}
-
-.ui-navbar li .ui-btn{ /* font size was defined in px. */
-    font-size: 0.8rem;
-}
-
-.ui-btn {
-    font-size: 0.8rem;
-}
 
 html {
-    font-size: 1.6em; 
+    
+}
+
+body{
+	padding-top:6.5em;
+}
+
+.btn{
+	font-size:1.5rem; 
 }

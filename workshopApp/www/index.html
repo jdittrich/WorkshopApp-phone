@@ -28,61 +28,64 @@
 			give the 2nd navbar step attributes like data-workshop-section="design"
 			so the javascript function can update the currently highlighted section
 		-->
-	<ul class="nav nav-tabs">
-		<li  class="active">
-			<a href="#home" data-toggle="tab">Home</a>
-		</li>
-		<li>
-			<a href="#1-round" data-toggle="tab">1st Round</a>
-		</li>
-		<li>
-			<a href="#2-round" data-toggle="tab">2nd Round</a>
-		</li>
-		<li>
-			<a href="#3-round" data-toggle="tab">Refinement</a>
-		</li>
-	</ul>
-	<!-- /navbar -->
 	
-	<div class="tab-content">
-		<div class="tab-pane active" id="home">
-			<ul class="nav nav-pills">
-				<li class="active">
-					<a href="#1-1-overview" data-toggle="tab" >overview</a>
-				</li>
-			</ul>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<ul class="nav nav-tabs">
+			<li  class="active">
+				<a href="#home" data-toggle="tab">Home</a>
+			</li>
+			<li>
+				<a href="#1-round" data-toggle="tab">1st Round</a>
+			</li>
+			<li>
+				<a href="#2-round" data-toggle="tab">2nd Round</a>
+			</li>
+			<li>
+				<a href="#3-round" data-toggle="tab">Refinement</a>
+			</li>
+		</ul>
+		<!-- /navbar -->
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="home">
+				<ul class="nav nav-pills">
+					<li class="active">
+						<a href="#1-1-overview" data-toggle="tab" >overview</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-pane" id="1-round">
+				<ul class="nav nav-pills">
+					<li>
+						<a href="#2-1-design" data-toggle="tab">Design</a>
+					</li>
+					<li>
+						<a href="#2-2-presentReview" data-toggle="tab">Review</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-pane" id="2-round">
+				<ul class="nav nav-pills">
+					<li>
+						<a href="#3-1-design" data-toggle="tab">Design</a>
+					</li>
+					<li>
+						<a href="#3-2-presentReview" data-toggle="tab">Review</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-pane" id="3-round">
+				<ul class="nav nav-pills">
+					<li>
+						<a href="#4-1-design" data-toggle="tab">Design</a>
+					</li>
+					<li>
+						<a href="#4-2-presentReview" data-toggle="tab">Review</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-		<div class="tab-pane" id="1-round">
-			<ul class="nav nav-pills">
-				<li>
-					<a href="#2-1-design" data-toggle="tab">Design</a>
-				</li>
-				<li>
-					<a href="#2-2-presentReview" data-toggle="tab">Review</a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-pane" id="2-round">
-			<ul class="nav nav-pills">
-				<li>
-					<a href="#3-1-design" data-toggle="tab">Design</a>
-				</li>
-				<li>
-					<a href="#3-2-presentReview" data-toggle="tab">Review</a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-pane" id="3-round">
-			<ul class="nav nav-pills">
-				<li>
-					<a href="#4-1-design" data-toggle="tab">Design</a>
-				</li>
-				<li>
-					<a href="#4-2-presentReview" data-toggle="tab">Review</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+	</nav>
 
 
 
