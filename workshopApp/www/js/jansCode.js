@@ -2,7 +2,7 @@ var createTimer = function(selector,time){
         var thisContainer,timerContainer, timer,startButton, resetButton, buttonContainer, timerEnd, timerStart, timerReset, notificationContainer;
         var config={
             timerNotificationText:"Next person – get ready to present and start timer!",
-            timerNotificationClass:"clock-custom-notifications",
+            timerNotificationClass:"clock-custom-notifications label label-info",
             timerContainerClass: "clock-custom-container",
             timerButtonsContainerClass:"clock-custom-button-container",
             timerButtonClass: "btn btn-default"
