@@ -63,7 +63,9 @@ body{
 }
 
 .fa{
-	pointer-events:none;
+	pointer-events:none; /*if that is absent, the click() functions are not triggered on the parent!*/
+}
+
 }
 
 /*#content-steps .fade {
