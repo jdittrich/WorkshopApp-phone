@@ -81,3 +81,18 @@ padding-left:1em;
 padding-bottom:0.4em;
 }
 
+.slideFromRight{
+	transform: scaleX(0);
+	transform-origin:right;
+  	transition: all 0.2s linear;
+}
+
+.slideFromLeft{
+	transform: scaleX(0);
+	transform-origin:left;
+  	transition: all 0.2s linear;
+}
+
+.slideFromLeft.slideIn{
+	transform: scaleX(1)
+}
