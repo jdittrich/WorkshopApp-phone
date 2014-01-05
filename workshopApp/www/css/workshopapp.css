@@ -42,6 +42,15 @@ body{
 	font-size:1.5rem; 
 }
 
+ul#stepsnavContainer {
+    display: table;
+    width: 100%;
+}
+ul#stepsnavContainer > li {
+    display: table-cell;
+    float: none;
+}
+
 #subnavContainer ul.nav {
     padding-top: 4px; /*space between the two navbars*/
 }
@@ -59,29 +68,16 @@ body{
 }
 
 .fa-translate{
-	transform:translateX(0.7em);
+	transform:translateX(-0.7em);
 }
 
 .fa{
 	pointer-events:none; /*if that is absent, the click() functions are not triggered on the parent!*/
 }
 
-}
-
-/*#content-steps .fade {
-  opacity: 0;
-  transform: translate(300px,0);
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-#content-steps .fade.in {
-  	transform: translate(0,0);
-	opacity: 1;
-}
-*/
 
 #content-steps{
-padding-left:0.2em;
-padding-bottom:0.3em;
+padding-left:1em;
+padding-bottom:0.4em;
 }
 
