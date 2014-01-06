@@ -151,16 +151,21 @@ $(function () {
 	});
 }); //end ready
 
-$(document).on('show.bs.tab', 'a[data-toggle="tab"]', function (e) {
+$(document).on('show.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[data-toggle="tab"])', function (e) {
 	var config={
-		classPanelForwardMove:"slideFromLeft",
-		classPanelBackwardMove:"slideFromRight",
+		classPanelForwardMove:"slideFromRight",
+		classPanelBackwardMove:"slideFromLeft",
 		splittingCharacter:"-",
+		classPanelFinishedMove:"slideIn",
+		panelId:"content-steps"
 	}
 	
-	//TODO: Clean old classes away to start on a blank slate
 	
+	var prevPanelId = null; 
 	
+	$("."+config.classPanelForwardMove).removeClass(config.classPanelForwardMove);
+	$("."+config.classPanelBackwardMove).removeClass(config.classPanelBackwardMove);
+	$("."+config.classPanelFinishedMove).removeClass(config.classPanelFinishedMove);
 	
 	// e.target => activated tab
 	// e.relatedTarget; => previous tab
@@ -171,11 +176,13 @@ $(document).on('show.bs.tab', 'a[data-toggle="tab"]', function (e) {
 	if(panelId.charAt(0)!=="#"){
 		return;
 	}
-	
-
-	if(e.relatedTarget === undefined){ //if there is no "provious tab" 
-		//assume a forward change
-		$(panelId).addClass(config.classPanelForwardMove);
+		
+	if(e.relatedTarget !== undefined){ //if there is no "provious tab" 
+		//check if a active panel is avaliable
+		prevPanelId = $(e.relatedTarget).attr("href");	
+		
+	}else{
+		prevPanelId = "#"+$("#"+config.panelId+" "+"."+"tab-pane.active").attr("id"); 
 	}
 	
 	//calculate if the change is backward or forward
@@ -184,7 +191,7 @@ $(document).on('show.bs.tab', 'a[data-toggle="tab"]', function (e) {
 	
 	
 	//same as above but, for the previous tab
-	var prevPanelId = $(e.target).attr("href");
+	
 	
 	if(prevPanelId.charAt(0)!=="#"){
 		return;
@@ -200,21 +207,22 @@ $(document).on('show.bs.tab', 'a[data-toggle="tab"]', function (e) {
 		$(panelId).addClass(config.classPanelForwardMove)
 	}
 	
-
+	console.log("show using "+"target" +e.target+" relatedTarget:"+prevPanelId);
 });
 
-$(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
+$(document).on('shown.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[data-toggle="tab"])', function (e) {
 	config={
 		classPanelForwardMove:"slideFromLeft",
 		classPanelFinalStyle:"slideIn"
 	}
-	e.target // activated tab
-	e.relatedTarget // previous tab
+	//e.target // activated tab
+	//e.relatedTarget // previous tab
 
+	console.log("showN using "+"target" +e.target+" relatedTarget:" +e.relatedTarget);
 	var panelId = $(e.target).attr("href");
 	if(panelId.charAt(0)!=="#"){
 		return;
 	}
-
-	$(panelId).addClass(config.classPanelFinalStyle)
-})
+	
+	window.setTimeout(function(){$(panelId).addClass(config.classPanelFinalStyle)},1); //wtf this is needed I don't know.
+});
