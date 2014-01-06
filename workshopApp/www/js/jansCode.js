@@ -152,25 +152,56 @@ $(function () {
 }); //end ready
 
 $(document).on('show.bs.tab', 'a[data-toggle="tab"]', function (e) {
-	config={
-		classPanelForwardMove:"slideFromLeft"
+	var config={
+		classPanelForwardMove:"slideFromLeft",
+		classPanelBackwardMove:"slideFromRight",
+		splittingCharacter:"-",
 	}
-	e.target // activated tab
-	e.relatedTarget // previous tab
-
+	
+	//TODO: Clean old classes away to start on a blank slate
+	
+	
+	
+	// e.target => activated tab
+	// e.relatedTarget; => previous tab
+	
 	var panelId = $(e.target).attr("href");
 
 	//link must be an Id
 	if(panelId.charAt(0)!=="#"){
 		return;
 	}
+	
 
+	if(e.relatedTarget === undefined){ //if there is no "provious tab" 
+		//assume a forward change
+		$(panelId).addClass(config.classPanelForwardMove);
+	}
+	
 	//calculate if the change is backward or forward
-	panelId.split("-");
+	var panelIdSplitted = panelId.substring(1).split(config.splittingCharacter);
+	var futurePosition = parseFloat(panelIdSplitted[0])+parseFloat(panelIdSplitted[1]);
+	
+	
+	//same as above but, for the previous tab
+	var prevPanelId = $(e.target).attr("href");
+	
+	if(prevPanelId.charAt(0)!=="#"){
+		return;
+	}
+	
+	var prevPanelIdSplitted = prevPanelId.substring(1).split(config.splittingCharacter);
+	
+	var pastPosition = parseFloat(prevPanelIdSplitted[0])+parseFloat(prevPanelIdSplitted[1])
+	
+	if(pastPosition>futurePosition){
+		$(panelId).addClass(config.classPanelBackwardMove)
+	} else {
+		$(panelId).addClass(config.classPanelForwardMove)
+	}
+	
 
-	$(panelId).addClass(config.classPanelForwardMove)
-
-})
+});
 
 $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
 	config={
