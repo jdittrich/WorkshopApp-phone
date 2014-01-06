@@ -1,10 +1,14 @@
+/*
+==Timer Clock-Adjustments ==
+*/
+
 .clock-custom-container{
      /* BUTTONS ASIDE OF COUNTER
     display: inline-block;
     width: 3em;
     vertical-align: top;
     */
-    font-size: 5.5em;
+    font-size: 4.5em;
 	line-height:1em;
     
     
@@ -28,46 +32,34 @@
     margin-right: 0.5em;
 	width: 6em;
 }
+/*timer/clock adjustments end*/
 
-
-html {
-    
-}
-
+/*because of navbar (see http://getbootstrap.com/components/#navbar-component-alignment "Body padding required" step*/
 body{
 	padding-top:6.5em;
 }
 
+/*global font size adjustment would not work for buttons otherwise:*/
 .btn{
 	font-size:1.5rem; 
 }
 
-ul#stepsnavContainer {
-    display: table;
-    width: 100%;
-}
-ul#stepsnavContainer > li {
-    display: table-cell;
-    float: none;
-	text-align: center;
-}
 
-#subnavContainer ul.nav {
-    padding-top: 4px; /*space between the two navbars*/
-}
-
+/*the button to get to the next step*/
 .stepnav-forward{
 	display:block;
 	width:13em;
 	margin-top:0.5em;
 }
 
+/*The button to call up an example image*/
 .exampleButton{
 	display:block;
 	width:13em;
 	margin-top:0.5em;
 }
 
+/*font awesome icons in navbar, some adjustments*/
 .fa-translate{
 	transform:translateX(-0.2em);
 }
@@ -82,6 +74,46 @@ padding-left:1em;
 padding-bottom:0.4em;
 }
 
+
+/*
+==nav bar customization==
+*/
+
+/*Expand top bar to full width*/
+ul#stepsnavContainer {
+    display: table;
+    width: 100%;
+}
+ul#stepsnavContainer > li {
+    display: table-cell;
+    float: none;
+	text-align: center;
+}
+
+#subnavContainer ul.nav {
+    padding-top: 4px; /*space between the two navbars*/
+}
+
+/*color adjustments for top bar*/
+#stepsnavContainer {
+    background: #357EBD;
+}
+#stepsnavContainer a {
+    color: white;
+    background: #357EBD;
+}
+#stepsnavContainer li.active a {
+    background: #F8F8F8;
+    color: #357EBD;
+}
+/*nav bar customization end*/
+
+
+/*
+==Page-Transitions==
+*/
+
+/*Page-Transitions from-states*/
 .slideFromRight{
 	transform: scaleX(0);
 	transform-origin:right;
@@ -94,6 +126,7 @@ padding-bottom:0.4em;
   	transition: all 0.1s linear;
 }
 
+/*Page transition to-stages*/
 .slideFromLeft.slideIn{
 	transform: scaleX(1)
 }
@@ -101,7 +134,13 @@ padding-bottom:0.4em;
 .slideFromRight.slideIn{
 	transform: scaleX(1)
 }
+/*Transtions end*/
 
+/*
+global font size adjustment.
+This works only if the base font size of bootstrap is in em.
+Such a CSS can be generated on the website of bootstrap or via the Bootstrap SCSS
+*/
 html{
-	font-size:1.6em;
+	font-size:1.4em;
 }
