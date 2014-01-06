@@ -49,6 +49,7 @@ ul#stepsnavContainer {
 ul#stepsnavContainer > li {
     display: table-cell;
     float: none;
+	text-align: center;
 }
 
 #subnavContainer ul.nav {
@@ -68,7 +69,7 @@ ul#stepsnavContainer > li {
 }
 
 .fa-translate{
-	transform:translateX(-0.7em);
+	transform:translateX(-0.2em);
 }
 
 .fa{
@@ -84,15 +85,23 @@ padding-bottom:0.4em;
 .slideFromRight{
 	transform: scaleX(0);
 	transform-origin:right;
-  	transition: all 0.2s linear;
+  	transition: all 0.1s linear;
 }
 
 .slideFromLeft{
 	transform: scaleX(0);
 	transform-origin:left;
-  	transition: all 0.2s linear;
+  	transition: all 0.1s linear;
 }
 
 .slideFromLeft.slideIn{
 	transform: scaleX(1)
+}
+
+.slideFromRight.slideIn{
+	transform: scaleX(1)
+}
+
+html{
+	font-size:1.6em;
 }
