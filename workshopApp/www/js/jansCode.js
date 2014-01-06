@@ -224,5 +224,5 @@ $(document).on('shown.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[da
 		return;
 	}
 	
-	window.setTimeout(function(){$(panelId).addClass(config.classPanelFinalStyle)},1); //wtf this is needed I don't know.
+	window.setTimeout(function(){$(panelId).addClass(config.classPanelFinalStyle)},10); //wtf this is needed I don't know.
 });
