@@ -1,14 +1,18 @@
 var createTimer = function (selector, time) {
 	var thisContainer, timerContainer, timer, startButton, resetButton, buttonContainer, timerEnd, timerStart, timerReset, notificationContainer;
+	thisContainer = $(selector);
+
 	var config = {
-		timerNotificationText: "Next person – get ready to present and start timer!",
+		timerNotificationText: thisContainer.attr("data-clock-notification")||"Next person – get ready to present and start timer!",
 		timerNotificationClass: "clock-custom-notifications label label-info",
 		timerContainerClass: "clock-custom-container",
 		timerButtonsContainerClass: "clock-custom-button-container",
 		timerButtonClass: "btn btn-default clock-custom-button"
 	};
 
-	thisContainer = $(selector);
+
+
+
 	timerEnd = function () {
 		//BEEP part
 		if (navigator && navigator.notification && navigator.notification.beep) {
