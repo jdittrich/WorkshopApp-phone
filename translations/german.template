@@ -4,7 +4,7 @@ showExample: Beispiel zeigen
 designPhaseInstructions:
 presentReviewInstructions:
 presentReviewInstructions_secondary:
-
+to: zu
 
 
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -71,26 +71,26 @@ presentReviewInstructions_secondary:
 		<div  class="tab-pane active" id="1-1-overview">
 		<!-- /header -->
 			<p>This app guides youthrough a Design studio Workshop, an idea-generation method</p>
-			<p>Gather 2-5 People to do the workshop.</p>
-			<p>It needs to be clear what should archived,so you need a problem to solve or a challange</p>
-			<p>Please take care that you have the following items:</p>
+			<p>Diese App hilft dir, einen Design-Studio-Workshop durchzuführen, um neue Ideen zu entwickeln .
+			<p>Du brauchts 2-5 Personen die gemeinsam an einer Probelmstellung arbeiten. Es muss klar sein <em>wofür</em> ihr die Ideen entwickeln wollt</p>
+			<p>du brauchst:</p>
 			<ul>
-				<li>A bunch of paper sheets (DINA4 DINA3) for each person</li>
-				<li>Something to draw for everybody (felt pens are great)</li>
-				<li>several green and red crayons or felt pens</li>
+				<li>einen Haufan Papiere (min 3 pro Person) im Format A4 oder A3</li>
+				<li>(Filz)Stifte in Schwarz, einen für jeden</li>
+				<li>mehrere grüne und rote (filz)Stifte</li>
 			</ul>
-			<a href="#2-1-design" data-toggle="tab" class="btn btn-primary stepnav stepnav-forward" role="button">begin workshop! <i class="fa fa-chevron-right"></i></a>
+			<a href="#2-1-design" data-toggle="tab" class="btn btn-primary stepnav stepnav-forward" role="button">Workshop beginnen!<i class="fa fa-chevron-right"></i></a>
 	</div>
 	<!--End page -->
 
 	<div  class="tab-pane" id="2-1-design">
-			1design
-			<p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
-			<p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
-			<p>You got 5 min. in which you all work in paralell on your own ideas.</p>
+			<h2>Design</h2>
+			<p>In der Designphase beginnt jeder mit einem leeren Blatt.</p> 
+			<p>Das Blatt wird mit Strichen in 6 oder 4 gleiche Bereiche geteilt – in jeden Bereich kommt ene Idee.</p>
+			<p>Ihr habt 5 Minuten in denen ihr alle parallel an euren Ideen arbeitet: Jede Idee kommt in einen Bereich, jeder Bereich soll am Ende mit einer Idee gefüllt sein.</p>
 			<div class="countdownTimer" data-clock-duration="300"></div>
 			<button class="btn btn-primary exampleButton" data-toggle="modal" data-target="#modal-DesignExample">
-	  show Example
+	  Beispiel zeigen
 			</button>
 
 
@@ -102,26 +102,27 @@ presentReviewInstructions_secondary:
 
 	<!--End page -->
 	<div  class="tab-pane" id="2-2-presentReview">
-			1presentRev
-			<p>For each person:</p>
+			<h2>Feedback</h2>
+			<p>Pro Person macht ihr folgendes:</p>
 			<ol>
-				<li>Briefly present your Solution</li>
-				<li>Than, everybody else gives Feedback.</li>
+				<li>Die person stellt die Ideen kurz vor</li>
+				<li>Jeder andere gibt Feedback: Gute Lösungen werden grün eingekreist, problematische Ideen rot. Der grund wird daneben geschreiben</li>
 			</ol>
-			<p>5 min per person for presentation and feedback</p>
+			<p><em>Beachtet:</em> In der Feedback-Phase wird nichts gestaltet: Sagt was gut ist, und was probelmatisch und warum, aber gebt keine Lösungsvorschläge (Lösungen werden in den Designphasen entwickelt)</p> 
+			</p>
+			
+			<p><em>pro Person</em> habt ihr 5 Minuten Zeit dafür</p>
 
 			<div class="countdownTimer" data-clock-duration="5"></div>
 
-
-			<p>This is not a design phase! Discuss what is good or bad about ideas and why, but leave the design up to the creator of the sketches.</p>
-
-			<h4>Everybody presented and got feedback?</h4>
-			<p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
+			<h4>Hat jede(r) präsentiert und Feedback bekommen?</h4>
+			<p>…dann beginnt die nächste Design-Runde, in der ihr eure Ideen basierend auf dem Feedback weiterentwickelt. </p>
+			<p>Es ist o.k., Ideen von anderen mitzubenutzen und weiterzuentwickeln</p>
 			<button class="btn btn-primary exampleButton" data-toggle="modal" data-target="#modal-ReviewExample">
-	  show Example
+	  zeige Beispiel
 			</button>
 
-			<a href="#3-1-design" data-toggle="tab"  class="btn btn-primary stepnav stepnav-forward" role="button">to 2nd round! <i class="fa fa-chevron-right"></i></a>
+			<a href="#3-1-design" data-toggle="tab"  class="btn btn-primary stepnav stepnav-forward" role="button">zur 2. Design-Runde!<i class="fa fa-chevron-right"></i></a>
 	</div>
 	<!--End page -->
 
