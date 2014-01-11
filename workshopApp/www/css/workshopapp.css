@@ -34,10 +34,7 @@
 }
 /*timer/clock adjustments end*/
 
-/*because of navbar (see http://getbootstrap.com/components/#navbar-component-alignment "Body padding required" step*/
-body{
-	padding-top:6.5em;
-}
+
 
 /*global font size adjustment would not work for buttons otherwise:*/
 .btn{
@@ -74,16 +71,35 @@ padding-left:1em;
 padding-bottom:0.4em;
 }
 
+h2{
+margin-top:0;
+font-size:1.75em;
+}
+
+h3{
+
+
+}
 
 /*
 ==nav bar customization==
 */
+
+/*because of navbar (see http://getbootstrap.com/components/#navbar-component-alignment "Body padding required" step*/
+body{
+	padding-top:4.5em;
+}
+
+.navbar.navbar-default{
+	margin-bottom:0.3em;
+}
 
 /*Expand top bar to full width*/
 ul#stepsnavContainer {
     display: table;
     width: 100%;
 }
+
 ul#stepsnavContainer > li {
     display: table-cell;
     float: none;
@@ -93,6 +109,8 @@ ul#stepsnavContainer > li {
 #subnavContainer ul.nav {
     padding-top: 4px; /*space between the two navbars*/
 }
+
+
 
 /*color adjustments for top bar*/
 #stepsnavContainer {
@@ -144,3 +162,4 @@ Such a CSS can be generated on the website of bootstrap or via the Bootstrap SCS
 html{
 	font-size:1.4em;
 }
+
