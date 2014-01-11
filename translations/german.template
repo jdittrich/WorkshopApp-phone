@@ -10,16 +10,16 @@ to: zu
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<ul class="nav nav-pills" id="stepsnavContainer">
 			<li  class="active">
-				<a href="#1-step" data-toggle="tab"><i class="fa fa-home"></i></a>
+				<a href="#1-step" data-toggle="tab"><i class="fa fa-home"></i> </a>
 			</li>
 			<li>
-				<a href="#2-step" data-toggle="tab"><i class="fa fa-chevron-right fa-translate"></i>1st </a>
+				<a href="#2-step" data-toggle="tab"><i class="fa fa-chevron-right fa-translate"></i>1. </a>
 			</li>
 			<li>
-				<a href="#3-step" data-toggle="tab"><i class="fa fa-chevron-right fa-translate"></i>2nd </a>
+				<a href="#3-step" data-toggle="tab"><i class="fa fa-chevron-right fa-translate"></i>2. </a>
 			</li>
 			<li>
-				<a href="#4-step" data-toggle="tab"><i class="fa fa-chevron-right fa-translate"></i>Refine </a>
+				<a href="#4-step" data-toggle="tab"><i class="fa fa-chevron-right fa-translate"></i>Zusammenfassen </a>
 			</li>
 		</ul>
 		<!-- /navbar -->
@@ -28,7 +28,7 @@ to: zu
 			<div class="tab-pane active" id="1-step">
 				<ul class="nav nav-tabs">
 					<li class="active">
-						<a href="#1-1-overview" data-toggle="tab"  >overview</a>
+						<a href="#1-1-overview" data-toggle="tab"  >Übersicht</a>
 					</li>
 				</ul>
 			</div>
@@ -38,7 +38,7 @@ to: zu
 						<a href="#2-1-design" data-toggle="tab">Design</a>
 					</li>
 					<li>
-						<a href="#2-2-presentReview" data-toggle="tab">Review</a>
+						<a href="#2-2-presentReview" data-toggle="tab">Feedback</a>
 					</li>
 				</ul>
 			</div>
@@ -48,7 +48,7 @@ to: zu
 						<a href="#3-1-design" data-toggle="tab">Design</a>
 					</li>
 					<li>
-						<a href="#3-2-presentReview" data-toggle="tab">Review</a>
+						<a href="#3-2-presentReview" data-toggle="tab">Feedback</a>
 					</li>
 				</ul>
 			</div>
@@ -58,7 +58,7 @@ to: zu
 						<a href="#4-1-design" data-toggle="tab">Design</a>
 					</li>
 					<li>
-						<a href="#4-2-presentReview" data-toggle="tab">Review</a>
+						<a href="#4-2-presentReview" data-toggle="tab">Feedback</a>
 					</li>
 				</ul>
 			</div>
@@ -70,10 +70,11 @@ to: zu
 	<div class="tab-content" id="content-steps">
 		<div  class="tab-pane active" id="1-1-overview">
 		<!-- /header -->
-			<p>This app guides youthrough a Design studio Workshop, an idea-generation method</p>
+			<h2>Überblick</h2>
 			<p>Diese App hilft dir, einen Design-Studio-Workshop durchzuführen, um neue Ideen zu entwickeln .
-			<p>Du brauchts 2-5 Personen die gemeinsam an einer Probelmstellung arbeiten. Es muss klar sein <em>wofür</em> ihr die Ideen entwickeln wollt</p>
-			<p>du brauchst:</p>
+			<p>Du brauchts 2-5 Personen pro Gruppe die gemeinsam an einer Probelmstellung arbeiten. Es muss klar sein <em>wofür</em> ihr die Ideen entwickeln wollt</p>
+			<p>Du kannst auch mit einer einzelnen Gruppe arbeiten</p>
+			<p><strong>Du brauchst:</strong></p>
 			<ul>
 				<li>einen Haufan Papiere (min 3 pro Person) im Format A4 oder A3</li>
 				<li>(Filz)Stifte in Schwarz, einen für jeden</li>
@@ -128,78 +129,69 @@ to: zu
 
 
 	<div  class="tab-pane" id="3-1-design">
-			2design
-			<p>In the design phase, everybody starts with an empty sheet of paper. Everyone draws his/her solutions.</p>
-			<p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
-			<p>You got 5 min. in which you all work in paralell on your own ideas.</p>
+			<h2>Design</h2>
+			<p>Auch in der 2. Designphase beginnt jeder mit einem leeren Blatt.</p> 
+			<p>Das Blatt wird mit Strichen in 6 oder 4 gleiche Bereiche geteilt – in jeden Bereich kommt ene Idee.</p>
+			<p>Ihr habt 5 Minuten in denen ihr alle parallel an euren Ideen arbeitet: Jede Idee kommt in einen Bereich, jeder Bereich soll am Ende mit einer Idee gefüllt sein.</p>
 			<div class="countdownTimer" data-clock-duration="300"></div>
 
 		<button class="btn btn-primary exampleButton" data-toggle="modal" data-target="#modal-DesignExample">
-	  show Example
+	  zeige Beispiel
 			</button>
 
-			<a href="#3-2-presentReview" data-toggle="tab"  class="btn btn-primary stepnav stepnav-forward" role="button">Present and Review <i class="fa fa-chevron-right"></i></a>
+			<a href="#3-2-presentReview" data-toggle="tab"  class="btn btn-primary stepnav stepnav-forward" role="button">Feedback <i class="fa fa-chevron-right"></i></a>
 	</div>
 	<!--End page -->
 
 
 	<div  class="tab-pane" id="3-2-presentReview">
 
-			2presentRev
-			<p>For each person:</p>
+			<h2>Feedback</h2>
+			<p>Pro Person macht ihr folgendes:</p>
 			<ol>
-				<li>Briefly present your Solution</li>
-				<li>Than, everybody else gives Feedback.</li>
+				<li>Die person stellt die Ideen kurz vor</li>
+				<li>Jeder andere gibt Feedback: Gute Lösungen werden grün eingekreist, problematische Ideen rot. Der grund wird daneben geschreiben</li>
 			</ol>
-			<p>5 min per person for presentation and feedback</p>
+			<p><em>Beachtet:</em> In der Feedback-Phase wird nichts gestaltet: Sagt was gut ist, und was probelmatisch und warum, aber gebt keine Lösungsvorschläge (Lösungen werden in den Designphasen entwickelt)</p> 
+			</p>
+			
+			<p><em>pro Person</em> habt ihr 5 Minuten Zeit dafür</p>
 
 			<div class="countdownTimer" data-clock-duration="5"></div>
-
-
-			<p>This is not a design phase! Discuss what is good or bad about ideas and why, but leave the design up to the creator of the sketches.</p>
-
-			<h4>Everybody presented and got feedback?</h4>
-			<p>After each person presented his/her work and got feedback from the group, start another round of design. Please note that it is o.k. to make use of the other's ideas!</p>
+			
+			<h4>Hat jede(r) präsentiert und Feedback bekommen?</h4>
+			<p>…dann beginnt die nächste und letzte Design-Runde, in der ihr jetzt eure einzelnen Ideen zu einer Lösung zusammenführt</p>
+			
 			<button class="btn btn-primary exampleButton" data-toggle="modal" data-target="#modal-ReviewExample">
-	  show Example
+	  zeige Beispiel
 			</button>
 
-			<a href="#4-1-design" data-toggle="tab" class="btn btn-primary stepnav stepnav-forward" role="button">to refinement <i class="fa fa-chevron-right"></i></a>
+			<a href="#4-1-design" data-toggle="tab" class="btn btn-primary stepnav stepnav-forward" role="button">Abschlussrunde <i class="fa fa-chevron-right"></i></a>
 
 	</div>
 	<!--End page -->
 
 	<div  class="tab-pane" id="4-1-design">
-
-			<p>In the 3rd design phase, everybody in the group works on a set of concepts</p>
-			<p>Each paper must be devided in 6 or 4 sections to host different solutions each</p>
-			<p>You got 5 min. in which you all work together on the concepts</p>
+			<h2>Design</h2>
+			<p>In der Abschlussrunde arbeiten alle in der Gruppe an einer Lösung, die auf den zuvor erarbeiteten Ideen beruht</p>
+			<p>Das Blatt wird nicht unterteilt!</p>
+			<p>Ihr habt 5 Minuten in denen ihr alle gemeinsam an eurer Ideen arbeitet.</p>
 			<div class="countdownTimer" data-clock-duration="300"></div>
-			<button class="btn btn-primary exampleButton" data-toggle="modal" data-target="#modal-DesignExample">
-	  show Example
-			</button>
 
-			<a href="#4-2-presentReview" data-toggle="tab"  class="btn btn-primary stepnav stepnav-forward" role="button">Present and Review <i class="fa fa-chevron-right"></i></a>
+			<a href="#4-2-presentReview" data-toggle="tab"  class="btn btn-primary stepnav stepnav-forward" role="button">Schluss- Feedback <i class="fa fa-chevron-right"></i></a>
 
 	</div>
 	<!--End page -->
 
 	<div  class="tab-pane" id="4-2-presentReview">
 
-
-			<p>If you just have one group, to a self-assesment here. If you got several groups in the workshop, your one presents, the other groups' members give feedback</p>
-			<p>For each group:</p>
-			<ol>
-				<li>Briefly present your Solution</li>
-				<li>Than, everybody else gives Feedback.</li>
-			</ol>
-			<p>10 min per group for presentation and feedback</p>
-			<div class="countdownTimer" data-clock-duration="10"></div>
-
-			<button class="btn btn-primary exampleButton" data-toggle="modal" data-target="#modal-ReviewExample">
-	  show Example
-			</button>
-
+			<h2>Abschlussfeedback</h2>
+			<p>Wenn ihr eine einzelne Gruppe habt besprecht hier, wie ihr die Ideen weiternutzen werdet und schließt den Workshop dann ab</p>
+			
+			
+			<p>Hast du mehrere Gruppen stellt eine Gruppe ihr Design vor, und die Mitglieder der anderen Gruppen geben Feedback.</p>
+			<p>10 Minuten Zeit pro pro Gruppe</p>
+			<div class="countdownTimer" data-clock-duration="600"></div>
 	</div>
 	<!--End page -->
 	</div><!--end tabbable content-->
@@ -215,10 +207,10 @@ to: zu
 		  </div>
 		  <div class="modal-body">
 			<img src="img/DesignStudio1.png" class="img-responsive">
-			<p>Example for a sheet devided section for an idea each</p>
+			<p>Beispiel für ein Blatt mit Einteilungen für je eine Idee.</p>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
 		  </div>
 		</div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -229,14 +221,14 @@ to: zu
 		<div class="modal-content">
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 class="modal-title" id="modal-ReviewExample-lable">Design Example</h4>
+			<h4 class="modal-title" id="modal-ReviewExample-lable">Feedback Beispiel</h4>
 		  </div>
 		  <div class="modal-body">
 			<img src="img/DesignStudio3.png" class="img-responsive">
-			<p>Example for an annotated idea sketch</p>
+			<p>Beispiel für eine Skizze mit Anmerkungen</p>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
 		  </div>
 		</div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
