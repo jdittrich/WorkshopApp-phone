@@ -110,7 +110,14 @@ ul#stepsnavContainer > li {
     padding-top: 4px; /*space between the two navbars*/
 }
 
+li.listright{ /*makes this list point appear right*/
+	float:right;
+}
 
+li.listright a{ /*makes a link "bigger"*/
+	padding-left:1em;
+	padding-right:1em;
+}
 
 /*color adjustments for top bar*/
 #stepsnavContainer {
