@@ -121,6 +121,9 @@ $(function () {
 		} //end else
 	}); //end each callback function and each function call
 
+	//calculate the height of the navbar and give appropriate space, see http://getbootstrap.com/components/#navbar-component-alignment "Body padding required" step
+	$("body").css("padding-top", ($(".navbar-fixed-top").height()+30)+"px");
+
 	//activate the 1st link in the subnav each time a mainnav link is clicked
 	$('#stepsnavContainer a').click(function (e) {
 		e.preventDefault();
