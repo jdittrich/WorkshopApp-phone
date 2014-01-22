@@ -214,7 +214,7 @@ $(document).on('show.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[dat
 		$(panelId).addClass(config.classPanelForwardMove)
 	}
 	
-	console.log("show using "+"target" +e.target+" relatedTarget:"+prevPanelId);
+	//console.log("show using "+"target" +e.target+" relatedTarget:"+prevPanelId);
 });
 
 $(document).on('shown.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[data-toggle="tab"])', function (e) {
@@ -225,7 +225,7 @@ $(document).on('shown.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[da
 	//e.target // activated tab
 	//e.relatedTarget // previous tab
 
-	console.log("showN using "+"target" +e.target+" relatedTarget:" +e.relatedTarget);
+	//console.log("showN using "+"target" +e.target+" relatedTarget:" +e.relatedTarget);
 	var panelId = $(e.target).attr("href");
 	if(panelId.charAt(0)!=="#"){
 		return;
@@ -233,3 +233,8 @@ $(document).on('shown.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[da
 	
 	window.setTimeout(function(){$(panelId).addClass(config.classPanelFinalStyle)},10); //wtf this is needed I don't know.
 });
+
+$(document).on('shown.bs.tab', 'a[data-toggle="tab"]:not(#stepsnavContainer a[data-toggle="tab"])', function (e) {
+	window.scroll(0,0);
+});
+
