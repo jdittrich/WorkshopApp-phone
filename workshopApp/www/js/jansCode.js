@@ -3,7 +3,7 @@ var createTimer = function (selector, time) {
 	thisContainer = $(selector);
 
 	var config = {
-		timerNotificationText: thisContainer.attr("data-clock-notification")||"Next person – get ready to present and start timer!",
+		timerNotificationText: thisContainer.attr("data-clock-notification")||"Die Zeit ist vorbei",
 		timerNotificationClass: "clock-custom-notifications label label-info",
 		timerContainerClass: "clock-custom-container",
 		timerButtonsContainerClass: "clock-custom-button-container",
@@ -28,8 +28,9 @@ var createTimer = function (selector, time) {
 
 		//RESET Part
 		thisContainer.fadeTo(400, 0.1).fadeTo(600, 1, function () {
-			//notificationContainer.fadeTo(200,1);
+			
 			notificationContainer.show(400);
+	
 			$(timer).countdown('option', {
 				until: time
 			});
